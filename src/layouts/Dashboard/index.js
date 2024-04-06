@@ -1,29 +1,50 @@
-import React from 'react'
+import React, { useContext, useState } from 'react';
+import Chart from "react-apexcharts";
+import { Apex } from '../../assets/data';
+import { StatusCard } from '../../assets/data';
+import { ThemeContext } from '../../Context/Theme';
 
 export const Dashboard = () => {
+  const { color, theme, fontColor } = useContext(ThemeContext);
+  const [hoveredCardIndex, setHoveredCardIndex] = useState(null);
+
+  const handleCardHover = (index) => {
+    setHoveredCardIndex(index);
+  };
+
   return (
-    <div className='dashboard'>
-      <div className='navbar'>
-        <div className='profile'>
-          <div>
-            <img src='' alt='' />
-            <p>Mike Tyson</p>
+    <div>
+      <div className='my-5'>
+        <h2>Dashboard</h2>
+      </div>
+      <div className='d-flex align-items-center gap-5 w-100'>
+        <div className='container rounded w-50'>
+          <div className='row gy-4'>
+            {StatusCard.map((card, index) => (
+              <div
+                className={`col-6`}
+                key={index}
+                onMouseEnter={() => handleCardHover(index)}
+                onMouseLeave={() => handleCardHover(null)}
+              >
+                <div
+                  className='d-flex align-items-center border rounded p-3 shadow'
+                  style={{ backgroundColor: hoveredCardIndex === index ? color : '' }}
+                >
+                  <div className='text-center w-50 h1'>{card.icon}</div>
+                  <div className='w-75 p-3'>
+                    <p className='m-0 h2'>{card.count}</p>
+                    <p className='m-0'>{card.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
-        <div className='changes'>
-
+        <div className='w-50'>
+          <Chart className="shadow" options={Apex} series={Apex.series} height={Apex.chart.height} />
         </div>
-      </div>
-      <div class="dropdown">
-        <div  type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <p>Mike Tyson</p>
-        </div>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Action</a></li>
-          <li><a class="dropdown-item" href="#">Another action</a></li>
-          <li><a class="dropdown-item" href="#">Something else here</a></li>
-        </ul>
       </div>
     </div>
-  )
-}
+  );
+};
