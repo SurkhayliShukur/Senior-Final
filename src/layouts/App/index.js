@@ -3,6 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Dashboard, Customers, Products, Statistics } from '../../layouts';
 import { Navbar, Sidebar } from "../../components"
 import { ThemeContext } from '../../Context/Theme';
+import { ToastContainer } from 'react-toastify';
 
 export const App = () => {
   const navigate = useNavigate()
@@ -60,6 +61,7 @@ export const App = () => {
             ))
           }
         </Routes>
+        <ToastContainer />
       </div>
     </div>
   )
