@@ -1,3 +1,3 @@
 export const ENDPOINTS = {
-    PRODUCT: "/product",
+    PRODUCT: "product",
 }

@@ -6,6 +6,5 @@ export const addProduct = (newProduct) => {
         method: "POST",
         url: ENDPOINTS.PRODUCT,
         data: newProduct
-
     })
 }
