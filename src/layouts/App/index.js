@@ -3,13 +3,14 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Dashboard, Customers, Products, Statistics } from '../../layouts';
 import { Navbar, Sidebar } from "../../components"
 import { ThemeContext } from '../../Context/Theme';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify"
+import Add from '../../components/Custom/Add';
 
 export const App = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    navigate("/dashboard")
+    // navigate("/dashboard")
   }, [])
 
   const { theme, fontColor, color } = useContext(ThemeContext)
@@ -58,8 +59,10 @@ export const App = () => {
           {
             SIDEBAR_ROUTES.map((route, key) => (
               <Route path={route.path} element={route.element} key={key} />
+
             ))
           }
+          <Route path="/add" exact={true} element={<Add />} />
         </Routes>
         <ToastContainer />
       </div>
