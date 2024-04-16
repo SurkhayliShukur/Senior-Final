@@ -10,7 +10,7 @@ export const App = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // navigate("/dashboard")
+    navigate("/dashboard")
   }, [])
 
   const { theme, fontColor, color } = useContext(ThemeContext)
@@ -62,7 +62,7 @@ export const App = () => {
 
             ))
           }
-          <Route path="/add" exact={true} element={<Add />} />
+          <Route path="/customers/add" exact={true} element={<Add />} />
         </Routes>
         <ToastContainer />
       </div>

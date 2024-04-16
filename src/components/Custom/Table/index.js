@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Pagination, Columns, Filters, CustomModal } from '../../../components';
 import { ThemeContext } from '../../../Context/Theme';
+import { useNavigate } from 'react-router-dom';
 
 export const Table = ({ type, data, options, setOptions, handleCheckbox, basket, setBasket, setIsShow, toggleFilters, showFilters, inputValues, setInputValues }) => {
 
   const { color, theme, fontColor } = useContext(ThemeContext)
+
+  const navigate = useNavigate()
 
   const tableHeads = Object.keys(data[0])
 
@@ -99,7 +102,27 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
               <i className="bi bi-funnel" /> Show Inputs
             </button>
         }
-       
+        {
+          type !== "Products" && (
+            <button
+              onClick={() => {
+                navigate("/customers/add")
+              }}
+              className="btn btn-primary"
+              style={{
+                width: "50px",
+                height: "40px",
+                position: "absolute",
+                top: "20%",
+                left: "75%",
+                fontSize: "14px",
+                backgroundColor: color,
+              }}>
+              Add
+            </button>
+          )
+        }
+
       </div>
       {showFilters && <Filters inputValues={inputValues} setInputValues={setInputValues} />}
       <table className="table table-sm table-hover">
