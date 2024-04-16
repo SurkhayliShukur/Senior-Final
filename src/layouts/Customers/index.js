@@ -89,6 +89,7 @@ export const Customers = () => {
       <div className='float-start my-3 h2'>
         <span>Customers</span>
       </div>
+     
       <Table
         data={filteredData}
         options={options}
@@ -100,6 +101,7 @@ export const Customers = () => {
         setInputValues={setInputValues}
       />
       <ToastContainer autoClose={500} />
+
     </div>
   );
 };

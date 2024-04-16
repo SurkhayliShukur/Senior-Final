@@ -95,15 +95,16 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
               }
             </button>
 
-            : <button className="btn border dropdown-toggle ms-3" onClick={toggleFilters} style={{color: fontColor}}>
+            : <button className="btn border dropdown-toggle ms-3" onClick={toggleFilters} style={{ color: fontColor }}>
               <i className="bi bi-funnel" /> Show Inputs
             </button>
         }
+       
       </div>
       {showFilters && <Filters inputValues={inputValues} setInputValues={setInputValues} />}
       <table className="table table-sm table-hover">
         <thead>
-          <tr style={{color: fontColor}}>
+          <tr style={{ color: fontColor }}>
             {tableHeads.map((heading, index) => (
               <th key={index} className='text-center' scope="col">{heading.toUpperCase()}</th>
             ))}
@@ -116,7 +117,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
         <tbody>
           {
             activePosts.map((customer, objIndex) => (
-              <tr key={objIndex} style={{color: fontColor}}>
+              <tr key={objIndex} style={{ color: fontColor }}>
                 {
                   tableHeads.map((heading, index) => (
                     heading === "image" ? <td key={index} className='text-center'>
@@ -126,7 +127,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
                   ))
                 }
                 <td className='text-center'>
-                  <button className='btn bi bi-info-square cursor-pointer p-0 px-2' onClick={() => getInfo(customer)} style={{color: fontColor}}></button>
+                  <button className='btn bi bi-info-square cursor-pointer p-0 px-2' onClick={() => getInfo(customer)} style={{ color: fontColor }}></button>
                 </td>
                 {
                   type === "Products" &&

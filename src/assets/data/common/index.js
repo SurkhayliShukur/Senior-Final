@@ -5,6 +5,6 @@ export const addProduct = (newProduct) => {
     return instanceAxios({
         method: "POST",
         url: ENDPOINTS.PRODUCT,
-        data: newProduct
+        data: newProduct,
     })
 }
