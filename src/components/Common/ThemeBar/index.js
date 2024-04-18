@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { ThemeBar as Themes } from '../../../assets/data';
 import { ThemeContext } from '../../../Context/Theme';
 
@@ -18,6 +18,9 @@ export const ThemeBar = () => {
             setActiveButton({ ...activeButton, "Choose Color": name });
         }
     };
+    useEffect(() => {
+        localStorage.setItem('themes',theme)
+    },[theme])
 
     return (
         <div className="offcanvas offcanvas-end" id="offcanvasRight" aria-labelledby="offcanvasRightLabel" style={{ width: "300px", backgroundColor: theme, color: fontColor }}>

@@ -8,3 +8,11 @@ export const addProduct = (newProduct) => {
         data: newProduct,
     })
 }
+
+export const getProduct = (params) => {
+    return instanceAxios({
+        method: "GET",
+        url: ENDPOINTS.PRODUCT,
+        params
+    })
+}
