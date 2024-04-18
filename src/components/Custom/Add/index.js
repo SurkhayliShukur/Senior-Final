@@ -28,27 +28,28 @@ const Add = () => {
         (value) => value === "" || value === 0
     );
 
-    const handleFormSubmit = async (e) => {
-        e.preventDefault();
+    const handleFormSubmit = async () => {
+
         if (isEmpty) {
             toast.error("Please fill in all fields", {
                 autoClose: 1000,
             });
-            try {
-                await addProduct(newProduct);
-                toast.success("Product added successfully!", {
-                    autoClose: 1000,
-                });
-                setNewProduct(initialState);
-                setTimeout(() => {
-                    navigate("/customers");
-                }, 1500);
-            } catch (err) {
-                console.error("Error adding product:", err);
-                toast.error("Failed to add product. Please try again later.", {
-                    autoClose: 1000,
-                });
-            }
+            return;
+        }
+        try {
+            await addProduct(newProduct);
+            toast.success("Product added successfully!", {
+                autoClose: 1000,
+            });
+            setNewProduct(initialState);
+            setTimeout(() => {
+                navigate("/customers");
+            }, 1500);
+        } catch (err) {
+            console.error("Error adding product:", err);
+            toast.error("Failed to add product. Please try again later.", {
+                autoClose: 1000,
+            });
         }
     };
 
@@ -66,7 +67,7 @@ const Add = () => {
 
     return (
         <>
-            <form onChange={handleFormSubmit}>
+            <form>
                 <div className='d-flex justify-content-center flex-column align-items-center p-5'>
                     <div className='my-3'>
                         <input
@@ -155,8 +156,9 @@ const Add = () => {
                         />
                     </div>
                     <button
-                        type='submit'
+                        type='button'
                         className='btn btn-primary my-3'
+                        onClick={handleFormSubmit}
 
                     >
                         Add
