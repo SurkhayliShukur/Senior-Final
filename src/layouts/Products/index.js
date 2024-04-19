@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Basket, Table } from '../../components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { getProduct } from '../../assets/data/common';
 
 export const Products = () => {
 
@@ -15,51 +16,51 @@ export const Products = () => {
   const [ basket, setBasket ] = useState([])
   const [ isShow, setIsShow ] = useState(false)
 
-  const getData = async () => {
-    const url = "https://fakestoreapi.com/products";
-    const response = await fetch(url);
-    const data = await response.json();
-    setData(data);
-  };
+  // const getData = async () => {
+  //   const url = "https://fakestoreapi.com/products";
+  //   const response = await fetch(url);
+  //   const data = await response.json();
+  //   setData(data);
+  // };
   
-  // const fetchProducts = async () => {
-  //   try{
-  //     const response = await getProduct()
-  //     setFilteredData(response.data)
-  //   }
-  //   catch(err){
-  //     console.log(err)
-  //   }
-  // }
-  // useEffect(() => {
-  //   fetchProducts()
-  // },[])
-
+  const fetchProducts = async () => {
+    try{
+      const response = await getProduct()
+      setData(response.data)
+    }
+    catch(err){
+      console.log(err)
+    }
+  }
   useEffect(() => {
-    getData();
-  }, []);
+    fetchProducts()
+  },[])
+
+  // useEffect(() => {
+  //   getData();
+  // }, []);
 
   useEffect(() => {
     if (data.length > 0) {
-      const updatedData = data.map((item) => {
-        const { rating, ...withoutRating } = item;
-        const { rate, count } = item.rating;
-        const { id, title, description, category, image, price } = withoutRating;
+      // const updatedData = data.map((item) => {
+      //   const { rating, ...withoutRating } = item;
+      //   const { rate, count } = item.rating;
+      //   const { id, title, description, category, image, price } = withoutRating;
 
-        return {
-          id,
-          title,
-          description,
-          category,
-          image,
-          rate,
-          count,
-          price
-        };
-      });
-      setNewData(updatedData);
+      //   return {
+      //     id,
+      //     title,
+      //     description,
+      //     category,
+      //     image,
+      //     rate,
+      //     count,
+      //     price
+      //   };
+      // });
+      // setNewData(updatedData);
 
-      const keys = Object.keys(updatedData[0]);
+      const keys = Object.keys(data[0]);
       const initialOptions = [
         { name: "All", value: true },
         ...keys.map(key => ({ name: key, value: true }))
@@ -69,7 +70,7 @@ export const Products = () => {
   }, [data]);
 
   useEffect(() => {
-    setFilteredData(newData.map(item => Object.fromEntries(Object.entries(item).filter(([key]) => tableHeads.includes(key)))));
+    setFilteredData(data.map(item => Object.fromEntries(Object.entries(item).filter(([key]) => tableHeads.includes(key)))));
   }, [options]);
 
   // Filter checkboxes
