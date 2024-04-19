@@ -26,5 +26,16 @@
       "create_at": 1713453807405,
       "color": "#000"
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Brittan Rois",
+      "email": "brois0@unicef.org",
+      "location": "Bator",
+      "phone": "+62 745 807 7685",
+      "total_spend": "$557248.44",
+      "total_orders": 24011
+    }
   ]
 }

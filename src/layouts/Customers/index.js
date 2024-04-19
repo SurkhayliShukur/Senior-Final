@@ -4,11 +4,14 @@ import { Table } from '../../components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 export const Customers = () => {
 
   const [options, setOptions] = useState([]);
   const tableHeads = options.filter(option => option.value).map(option => option.name);
   const [filteredData, setFilteredData] = useState([...data])
+  // const [filteredData, setFilteredData] = useState([])
+
 
   useEffect(() => {
     setFilteredData(data.map(item => Object.fromEntries(Object.entries(item).filter(([key]) => tableHeads.includes(key)))));
@@ -41,7 +44,7 @@ export const Customers = () => {
       ...keys.map(key => ({ name: key, value: true }))
     ];
     setOptions(initialOptions);
-  }, [data]);
+  }, []);
 
   // Filter inputs
 
@@ -59,7 +62,7 @@ export const Customers = () => {
   };
 
   useEffect(() => {
-    const searchedData = data.filter((row) => {
+    const searchedData = filteredData.filter((row) => {
       let isMatch = true
 
       Object.entries(inputValues).forEach(([inputName, inputValue]) => {

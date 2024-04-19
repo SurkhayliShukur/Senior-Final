@@ -16,3 +16,10 @@ export const getProduct = (params) => {
         params
     })
 }
+export const getUsers = (params) => {
+    return instanceAxios({
+        method: "GET",
+        url: ENDPOINTS.USERS,
+        params
+    })
+}

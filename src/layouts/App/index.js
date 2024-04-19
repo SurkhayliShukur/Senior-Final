@@ -32,7 +32,7 @@ export const App = () => {
     },
     {
       path: "/products",
-      name: "Products",
+      name: "Products-Table",
       icon: <i className="bi bi-box-seam" />,
       element: <Products />
     },
@@ -62,7 +62,7 @@ export const App = () => {
 
             ))
           }
-          <Route path="/customers/add" exact={true} element={<Add />} />
+          <Route path="/add" exact={true} element={<Add />} />
         </Routes>
         <ToastContainer />
       </div>

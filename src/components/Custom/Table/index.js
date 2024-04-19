@@ -103,10 +103,10 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
             </button>
         }
         {
-          type !== "Products" && (
+          type === "Products" && (
             <button
               onClick={() => {
-                navigate("/customers/add")
+                navigate("/add")
               }}
               className="btn btn-primary"
               style={{

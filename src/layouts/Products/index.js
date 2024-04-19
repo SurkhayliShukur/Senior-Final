@@ -21,6 +21,19 @@ export const Products = () => {
     const data = await response.json();
     setData(data);
   };
+  
+  // const fetchProducts = async () => {
+  //   try{
+  //     const response = await getProduct()
+  //     setFilteredData(response.data)
+  //   }
+  //   catch(err){
+  //     console.log(err)
+  //   }
+  // }
+  // useEffect(() => {
+  //   fetchProducts()
+  // },[])
 
   useEffect(() => {
     getData();
