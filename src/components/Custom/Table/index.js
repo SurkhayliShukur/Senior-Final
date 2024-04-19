@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import { Pagination, Columns, Filters, CustomModal } from '../../../components';
 import { ThemeContext } from '../../../Context/Theme';
 import { useNavigate } from 'react-router-dom';
+import moment from 'moment';
 
 export const Table = ({ type, data, options, setOptions, handleCheckbox, basket, setBasket, setIsShow, toggleFilters, showFilters, inputValues, setInputValues }) => {
 
@@ -146,7 +147,8 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
                     heading === "image" ? <td key={index} className='text-center'>
                       <img src={customer[heading]} style={{ height: "32px" }} />
                     </td>
-                      : <td key={index} className='text-center'>{typeof customer[heading] === 'string' ? customer[heading].substring(0, 20) : customer[heading]}</td>
+                      : heading === "create_at" ? <td key={index} className='text-center'>{moment(customer[heading]).fromNow()}</td>
+                        : <td key={index} className='text-center'>{typeof customer[heading] === 'string' ? customer[heading].substring(0, 20) : customer[heading]}</td>
                   ))
                 }
                 <td className='text-center'>
