@@ -32,8 +32,8 @@ export const App = () => {
     },
     {
       path: "/products",
-      name: "Products-Table",
-      icon: <i className="bi bi-box-seam" />,
+      name: "Products-List",
+      icon: <i class="bi bi-table"></i>,
       element: <Products />
     },
     {
