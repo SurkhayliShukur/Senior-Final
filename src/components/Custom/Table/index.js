@@ -115,7 +115,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
                 height: "40px",
                 position: "absolute",
                 top: "20%",
-                left: "75%",
+                left: "80%",
                 fontSize: "14px",
                 backgroundColor: color,
               }}>

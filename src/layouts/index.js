@@ -3,4 +3,5 @@ export * from './Dashboard';
 export * from './Customers';
 export * from './Products';
 export * from './Statistics';
-export * from  './Basket'
+export * from './Basket'
+export * from './Card'
