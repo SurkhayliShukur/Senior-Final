@@ -79,7 +79,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
               ref={buttonRef}
               className='btn bi bi-basket3 ms-1 position-relative'
               style={{ fontSize: "20px", color: fontColor }}
-              onClick={() => setIsShow(true)}
+              onClick={() => setIsShow(true)}  // onClick navigate basket səhifəsi
             >
               {
                 !!basket.length && (
