@@ -7,19 +7,20 @@ export const Card = () => {
 
     return (
         <>
-            {
+        <div className="d-flex justify-content-between aligin-items-center my-5">
+        {
                 data.map((product) => (
-                    <div class="card" key={product.id} style="width: 18rem;">
-                        <img src={product.image} class="card-img-top" alt="..." />
-                        <div class="card-body">
+                    <div className="card" key={product.id} style={{width:'18rem'}}>
+                        <img src={product.image} className="card-img-top" alt="..." />
+                        <div className="card-body">
                             <h2>{product.title}</h2>
-                            <p class="card-text">{product.category}</p>
+                            <p className="card-text">{product.category}</p>
+
                         </div>
                     </div>
                 ))
             }
-
-
+        </div>
         </>
     )
 
