@@ -69,7 +69,7 @@ const Add = () => {
         <>
             <h2 className='my-3'>Add</h2>
             <form>
-                <div className='d-flex justify-content-evenly align-items-center p-5 '>
+                <div className='d-flex justify-content-center align-items-center p-5 '>
                     <div>
                         <div className='my-3'>
                             <input
@@ -167,7 +167,7 @@ const Add = () => {
                         </button>
                     </div>
 
-                    <div className=''>
+                    <div className=' mx-5'>
                         <SketchPicker
                             color={newProduct.color}
                             onChange={(color) => {

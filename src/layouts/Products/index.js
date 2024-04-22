@@ -13,8 +13,8 @@ export const Products = () => {
   const tableHeads = options.filter(option => option.value).map(option => option.name);
   const [filteredData, setFilteredData] = useState([...newData])
 
-  const [ basket, setBasket ] = useState([])
-  const [ isShow, setIsShow ] = useState(false)
+  // const [ basket, setBasket ] = useState([])
+  // const [ isShow, setIsShow ] = useState(false)
 
   // const getData = async () => {
   //   const url = "https://fakestoreapi.com/products";
@@ -105,13 +105,13 @@ export const Products = () => {
           options={options}
           setOptions={setOptions}
           handleCheckbox={handleCheckbox}
-          basket={basket}
-          setBasket={setBasket}
-          setIsShow={setIsShow}
+          // basket={basket}
+          // setBasket={setBasket}
+          // setIsShow={setIsShow}
         />
       )}
       <ToastContainer autoClose={500} />
-      <Basket basket={basket} isShow={isShow}/>
+      {/* <Basket basket={basket} isShow={isShow}/> */}
     </div>
   );
 };

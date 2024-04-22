@@ -4,7 +4,7 @@ import { ThemeContext } from '../../../Context/Theme';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
-export const Table = ({ type, data, options, setOptions, handleCheckbox, basket, setBasket, setIsShow, toggleFilters, showFilters, inputValues, setInputValues }) => {
+export const Table = ({ type, data, options, setOptions, handleCheckbox,  toggleFilters, showFilters, inputValues, setInputValues }) => {
 
   const { color, theme, fontColor } = useContext(ThemeContext)
 
@@ -44,42 +44,42 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
     setModalShow(true)
   }
 
-  const addBasket = (value, product) => {
-    value
-      ? setBasket(prevData => [...prevData, product])
-      : setBasket(prevData => prevData.filter(item => item !== product))
-  }
+  // const addBasket = (value, product) => {
+  //   value
+  //     ? setBasket(prevData => [...prevData, product])
+  //     : setBasket(prevData => prevData.filter(item => item !== product))
+  // }
 
   // Click outside
 
-  const buttonRef = useRef();
+  // const buttonRef = useRef();
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (buttonRef.current && !buttonRef.current.contains(event.target)) {
-        setIsShow(false);
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     if (buttonRef.current && !buttonRef.current.contains(event.target)) {
+  //       setIsShow(false);
+  //     }
+  //   };
 
-    document.addEventListener('mousedown', handleClickOutside);
+  //   document.addEventListener('mousedown', handleClickOutside);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [setIsShow]);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleClickOutside);
+  //   };
+  // }, [setIsShow]);
 
 
   return (
     <div>
       <div className='float-end my-3'>
         <Columns options={options} setOptions={setOptions} handleCheckbox={handleCheckbox} />
-        {
+        {/* {
           type === "Products"
             ? <button
               ref={buttonRef}
               className='btn bi bi-basket3 ms-1 position-relative'
               style={{ fontSize: "20px", color: fontColor }}
-              onClick={() => setIsShow(true)}  // onClick navigate basket səhifəsi
+              onClick={() => setIsShow(true)} 
             >
               {
                 !!basket.length && (
@@ -102,7 +102,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
             : <button className="btn border dropdown-toggle ms-3" onClick={toggleFilters} style={{ color: fontColor }}>
               <i className="bi bi-funnel" /> Show Inputs
             </button>
-        }
+        } */}
         {
           type === "Products" && (
             <button
@@ -137,9 +137,9 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
               <th key={index} className='text-center' scope="col">{heading.toUpperCase()}</th>
             ))}
             <th className='text-center'>INFO</th>
-            {
+            {/* {
               type === "Products" && <th className='text-center'>ADD</th>
-            }
+            } */}
           </tr>
         </thead>
         <tbody>
@@ -158,7 +158,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
                 <td className='text-center'>
                   <button className='btn bi bi-info-square cursor-pointer p-0 px-2' onClick={() => getInfo(customer)} style={{ color: fontColor }}></button>
                 </td>
-                {
+                {/* {
                   type === "Products" &&
                   <td className='text-center '>
                     <input
@@ -167,7 +167,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, basket,
                       onChange={(e) => addBasket(e.target.checked, customer)}
                     />
                   </td>
-                }
+                } */}
               </tr>
             ))
           }
