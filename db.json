@@ -1,19 +1,6 @@
 {
   "product": [
     {
-      "id": "3743",
-      "title": "fdsfdsf",
-      "description": "sdfsfsf",
-      "price": "00",
-      "discountPrice": "03",
-      "rating": "6",
-      "stock": "06",
-      "category": "ffff",
-      "image": "https://img.freepik.com/free-vector/call-center-assistant-helping-customers_23-2148192099.jpg?t=st=1711185131~exp=1711188731~hmac=d15b6fd4b96ab5b61c5487d8832101d905bea22c31d91a799392a7a200ab7cf8&w=740",
-      "create_at": 1713453807405,
-      "color": "#000"
-    },
-    {
       "id": "3c46",
       "title": "iphone",
       "description": "msmsmsmsmm",

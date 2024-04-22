@@ -67,103 +67,107 @@ const Add = () => {
 
     return (
         <>
+            <h2 className='my-3'>Add</h2>
             <form>
-                <div className='d-flex justify-content-center flex-column align-items-center p-5'>
-                    <div className='my-3'>
-                        <input
-                            type="text"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.title}
-                            name='title'
-                            placeholder='title'
-                            onChange={handleInput}
-                            ref={ref}
-                        />
-                    </div>
+                <div className='d-flex justify-content-evenly align-items-center p-5 '>
                     <div>
-                        <input
-                            type="text"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.description}
-                            name='description'
-                            onChange={handleInput}
-                            placeholder='description'
-                        />
-                    </div>
-                    <div className='my-3'>
-                        <input
-                            type="number"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.price}
-                            name='price'
-                            onChange={handleInput}
-                            placeholder='price'
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="number"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.discountPrice}
-                            name='discountPrice'
-                            onChange={handleInput}
-                        />
-                    </div>
-                    <div className='my-3'>
-                        <input
-                            type="number"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.rating}
-                            name='rating'
-                            onChange={handleInput}
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="number"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.stock}
-                            name='stock'
-                            onChange={handleInput}
-                        />
-                    </div>
-                    <div className='my-3'>
-                        <input
-                            type="text"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.category}
-                            name='category'
-                            onChange={handleInput}
-                            placeholder='category'
-                        />
-                    </div>
-                    <div>
-                        <input
-                            type="text"
-                            className="form-control"
-                            aria-label="Sizing example input"
-                            value={newProduct.image}
-                            name='image'
-                            onChange={handleInput}
-                            placeholder='image'
-                        />
-                    </div>
-                    <button
-                        type='button'
-                        className='btn btn-primary my-3'
-                        onClick={handleFormSubmit}
+                        <div className='my-3'>
+                            <input
+                                type="text"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.title}
+                                name='title'
+                                placeholder='title'
+                                onChange={handleInput}
+                                ref={ref}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.description}
+                                name='description'
+                                onChange={handleInput}
+                                placeholder='description'
+                            />
+                        </div>
+                        <div className='my-3'>
+                            <input
+                                type="number"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.price}
+                                name='price'
+                                onChange={handleInput}
+                                placeholder='price'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.discountPrice}
+                                name='discountPrice'
+                                onChange={handleInput}
+                            />
+                        </div>
+                        <div className='my-3'>
+                            <input
+                                type="number"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.rating}
+                                name='rating'
+                                onChange={handleInput}
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="number"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.stock}
+                                name='stock'
+                                onChange={handleInput}
+                            />
+                        </div>
+                        <div className='my-3'>
+                            <input
+                                type="text"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.category}
+                                name='category'
+                                onChange={handleInput}
+                                placeholder='category'
+                            />
+                        </div>
+                        <div>
+                            <input
+                                type="text"
+                                className="form-control"
+                                aria-label="Sizing example input"
+                                value={newProduct.image}
+                                name='image'
+                                onChange={handleInput}
+                                placeholder='image'
+                            />
+                        </div>
+                        <button
+                            type='button'
+                            className='btn btn-primary my-3'
+                            onClick={handleFormSubmit}
 
-                    >
-                        Add
-                    </button>
-                    <div className=' my-3'>
+                        >
+                            Add
+                        </button>
+                    </div>
+
+                    <div className=''>
                         <SketchPicker
                             color={newProduct.color}
                             onChange={(color) => {
