@@ -10,12 +10,11 @@ export const initialState = {
 }
 
 export const basketSlice = createSlice({
-    name: "basket",
+    name: "products",
     initialState,
     reducers: {
         addToCard: (state, action) => {
             const exist = state.basket.find((product) => product.id === action.payload.id)
-
             if (exist) {
                 toast.info("Product is already in the card")
 
@@ -44,4 +43,6 @@ export const basketSlice = createSlice({
         }
     }
 })
+export const getBasket = (state) => state.products.basket
+export const { addToCard } = basketSlice.actions
 export default basketSlice.reducer

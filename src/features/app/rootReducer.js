@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import basket from "../slices/BasketSlice"
+import products from "../slices/productSlice"
 
 const rootReducer = combineReducers({
-    basket,
+    products,
 })
 export default rootReducer

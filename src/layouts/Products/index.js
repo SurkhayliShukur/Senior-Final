@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Basket, Table } from '../../components';
+import { Table } from '../../components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getProduct } from '../../assets/data/common';
+
 
 export const Products = () => {
 
@@ -22,19 +23,19 @@ export const Products = () => {
   //   const data = await response.json();
   //   setData(data);
   // };
-  
+
   const fetchProducts = async () => {
-    try{
+    try {
       const response = await getProduct()
       setData(response.data)
     }
-    catch(err){
+    catch (err) {
       console.log(err)
     }
   }
   useEffect(() => {
     fetchProducts()
-  },[])
+  }, [])
 
   // useEffect(() => {
   //   getData();
@@ -105,9 +106,9 @@ export const Products = () => {
           options={options}
           setOptions={setOptions}
           handleCheckbox={handleCheckbox}
-          // basket={basket}
-          // setBasket={setBasket}
-          // setIsShow={setIsShow}
+        // basket={basket}
+        // setBasket={setBasket}
+        // setIsShow={setIsShow}
         />
       )}
       <ToastContainer autoClose={500} />
