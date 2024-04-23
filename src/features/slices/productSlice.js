@@ -44,5 +44,10 @@ export const basketSlice = createSlice({
     }
 })
 export const getBasket = (state) => state.products.basket
+export const getTotalPrice = (state) => state.products.totalPrice
+export const getTotalDiscountPrice = (state) => state.products.totalDiscountPrice
+export const getTotalAmount = (state) => state.products.totalAmount
+
+
 export const { addToCard } = basketSlice.actions
 export default basketSlice.reducer

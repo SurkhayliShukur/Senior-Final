@@ -53,8 +53,6 @@ export const Card = () => {
                                                     )
                                             }
                                         </button>
-                                        <button type="button" className="btn btn-secondary">Secondary</button>
-                                        <button type="button" className="btn btn-success">Success</button>
                                     </div>
 
                                 </div>
