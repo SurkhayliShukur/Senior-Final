@@ -1,13 +1,17 @@
 import React, { useContext, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Dashboard, Customers, Products, Statistics, Basket,Card } from '../../layouts';
+import { Dashboard, Customers, Products, Statistics, Basket, Card } from '../../layouts';
 import { Navbar, Sidebar } from "../../components"
 import { ThemeContext } from '../../Context/Theme';
+// import { getBasket } from '../../features/slices/productSlice';
+// import { useSelector } from 'react-redux';
 import { ToastContainer } from "react-toastify"
 import Add from '../../components/Custom/Add';
 
 export const App = () => {
   const navigate = useNavigate()
+ 
+
 
   useEffect(() => {
     navigate("/dashboard")
@@ -61,6 +65,7 @@ export const App = () => {
     body.background = theme
     body.color = fontColor
   }, [theme, color])
+
 
   return (
     <div className='app'>
