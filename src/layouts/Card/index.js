@@ -4,10 +4,12 @@ import { ThemeContext } from "../../Context/Theme"
 import { useDispatch, useSelector } from 'react-redux';
 import { getBasket } from '../../features/slices/productSlice';
 import { addToCard } from "../../features/slices/productSlice";
+import { TbShoppingCartCopy } from "react-icons/tb";
+import { TbShoppingCartDown } from "react-icons/tb";
 
 
 export const Card = () => {
-    const { color } = useContext(ThemeContext)
+    const { color, theme } = useContext(ThemeContext)
     const { data } = useFetchProduct()
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
@@ -31,7 +33,7 @@ export const Card = () => {
                                     <span className="text-secondary fs-5">price</span>
                                     <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
                                     <div className="d-flex justify-content-center align-items-center">
-                                        <button type="button" className="btn btn-primary" onClick={() => {
+                                        <button type="button" className="btn" style={{ backgroundColor: color }} onClick={() => {
                                             dispatch(
                                                 addToCard({
                                                     ...product,
@@ -46,10 +48,10 @@ export const Card = () => {
 
                                             {
                                                 basketExist ? (
-                                                    <span>  <i className="bi bi-bag-check" style={{ fontSize: '24px', }}></i></span>
+                                                    <TbShoppingCartCopy size={32} color={"white"} />
                                                 )
                                                     : (
-                                                        <span><i className="bi bi-bag-plus" style={{ fontSize: '24px', }}></i></span>
+                                                        <TbShoppingCartDown size={32} color={"white"} />
                                                     )
                                             }
                                         </button>
