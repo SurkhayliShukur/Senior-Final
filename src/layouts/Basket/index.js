@@ -55,7 +55,7 @@ export const Basket = () => {
                                     <div className="d-flex justify-content-center align-items-center">
                                         <button
                                             onClick={() => dispatch(increament(product))}
-                                            className='btn btn-success rounded-circle text-white mx-3 '>
+                                            className='btn btn-success rounded text-white mx-3 '>
                                             <LuPlus size={20} />
                                         </button>
                                         <p className='mb-2'>
@@ -63,7 +63,7 @@ export const Basket = () => {
                                         </p>
                                         <button
                                             onClick={() => dispatch(decrement(product))}
-                                            className='btn btn-danger rounded-circle text-white mx-3'>
+                                            className='btn btn-danger rounded text-white mx-3'>
                                             <LuMinus size={20} />
                                         </button>
 

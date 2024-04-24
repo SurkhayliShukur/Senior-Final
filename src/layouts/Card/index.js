@@ -16,7 +16,7 @@ export const Card = () => {
 
     return (
         <>
-            <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap">
+            <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap ">
                 {
                     data?.map((product) => {
                         const basketExist = basket.find(

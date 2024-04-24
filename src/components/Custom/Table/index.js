@@ -116,10 +116,10 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
               onClick={() => {
                 navigate("/add")
               }}
-              className="btn btn-primary "
+              className="btn text-white"
               style={{
                 width: "50px",
-                height: "40px",
+                height: "39px",
                 position: "absolute",
                 top: "20%",
                 left: "85%",
