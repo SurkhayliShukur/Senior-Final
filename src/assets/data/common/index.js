@@ -24,7 +24,7 @@ export const deleteProduct = (productId) => {
 }
 export const getSingleProduct = (productId) => {
     return instanceAxios({
-        method: "DELETE",
+        method: "GET",
         url: ENDPOINTS.PRODUCT_ID(productId)
     })
 }
