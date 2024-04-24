@@ -4,7 +4,7 @@ import { ThemeContext } from '../../../Context/Theme';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
-export const Table = ({ type, data, options, setOptions, handleCheckbox,  toggleFilters, showFilters, inputValues, setInputValues }) => {
+export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleFilters, showFilters, inputValues, setInputValues }) => {
 
   const { color, theme, fontColor } = useContext(ThemeContext)
 
@@ -104,18 +104,25 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox,  toggle
             </button>
         } */}
         {
+          type !== "Products" && (
+            <button className="btn border dropdown-toggle ms-3" onClick={toggleFilters} style={{ color: fontColor }}>
+              <i className="bi bi-funnel" /> Show Inputs
+            </button>
+          )
+        }
+        {
           type === "Products" && (
             <button
               onClick={() => {
                 navigate("/add")
               }}
-              className="btn btn-primary"
+              className="btn btn-primary "
               style={{
                 width: "50px",
                 height: "40px",
                 position: "absolute",
                 top: "20%",
-                left: "80%",
+                left: "85%",
                 fontSize: "14px",
                 backgroundColor: color,
               }}>
@@ -127,6 +134,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox,  toggle
             </button>
           )
         }
+        
 
       </div>
       {showFilters && <Filters inputValues={inputValues} setInputValues={setInputValues} />}
