@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table } from '../../components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { getProduct } from '../../assets/data/common';
+import { getProduct, deleteProduct } from '../../assets/data/common';
 
 
 export const Products = () => {
@@ -33,6 +33,19 @@ export const Products = () => {
       console.log(err)
     }
   }
+  const removeProduct = async (productId) => {
+    try {
+      await deleteProduct(productId)
+      toast.success("Product deleted successfully!", {
+        autoClose: 1000,
+      });
+      fetchProducts()
+    }
+    catch (err) {
+      console.log(err)
+    }
+  }
+
   useEffect(() => {
     fetchProducts()
   }, [])
@@ -106,6 +119,7 @@ export const Products = () => {
           options={options}
           setOptions={setOptions}
           handleCheckbox={handleCheckbox}
+          removeProduct={removeProduct}
         // basket={basket}
         // setBasket={setBasket}
         // setIsShow={setIsShow}

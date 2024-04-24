@@ -4,7 +4,7 @@ import { ThemeContext } from '../../../Context/Theme';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 
-export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleFilters, showFilters, inputValues, setInputValues }) => {
+export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleFilters, showFilters, inputValues, setInputValues, removeProduct }) => {
 
   const { color, theme, fontColor } = useContext(ThemeContext)
 
@@ -134,7 +134,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
             </button>
           )
         }
-        
+
 
       </div>
       {showFilters && <Filters inputValues={inputValues} setInputValues={setInputValues} />}
@@ -148,6 +148,9 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
             {/* {
               type === "Products" && <th className='text-center'>ADD</th>
             } */}
+            {
+              type === "Products" && <th className='text-center text-uppercase'>delete</th>
+            }
           </tr>
         </thead>
         <tbody>
@@ -176,6 +179,17 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
                     />
                   </td>
                 } */}
+                {
+                  type === "Products" && (
+                    <td>
+                      <button
+                        onClick={() => removeProduct(customer)}
+                        className='btn btn-danger mx-2 '>
+                        remove
+                      </button>
+                    </td>
+                  )
+                }
               </tr>
             ))
           }
