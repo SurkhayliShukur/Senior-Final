@@ -56,7 +56,8 @@ export const Sidebar = ({ routes }) => {
                     fontSize: "11px",
                     borderRadius: "50%",
                     backgroundColor: color,
-                    textAlign:'center'
+                    textAlign:'center',
+                    color:"white"
                   }}>
                     {basket.length}
                   </span>
