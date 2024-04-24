@@ -3,8 +3,6 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import { Dashboard, Customers, Products, Statistics, Basket, Card } from '../../layouts';
 import { Navbar, Sidebar } from "../../components"
 import { ThemeContext } from '../../Context/Theme';
-// import { getBasket } from '../../features/slices/productSlice';
-// import { useSelector } from 'react-redux';
 import { ToastContainer } from "react-toastify"
 import Add from '../../components/Custom/Add';
 
