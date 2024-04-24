@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { getBasket, getTotalPrice, getTotalDiscountPrice } from '../../features/slices/productSlice'
+import { getBasket, getTotalPrice, getTotalDiscountPrice, clearBasket } from '../../features/slices/productSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../Context/Theme'
 
@@ -12,6 +12,9 @@ export const Basket = () => {
 
     return (
         <>
+            <h1>
+                Basket
+            </h1>
             <header className='w-100 d-flex justify-content-center align-items-center text-white bg-dark my-4'>
                 <div>
                     <p className='fs-5'>TotalPrice:{totalPrice}</p>
@@ -19,7 +22,12 @@ export const Basket = () => {
                 </div>
                 <div>
                     <p className='fs-5 '>Sum:{totalPrice - totalDiscountPrice}</p>
-                    <button className='btn btn-danger ms-4'>clear</button>
+                    <button
+                        className='btn btn-danger mb-2 ms-4'
+                        onClick={() => {
+                            dispatch(clearBasket())
+                        }}
+                    >clear</button>
                 </div>
             </header>
             <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap">

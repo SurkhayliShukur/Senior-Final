@@ -43,7 +43,7 @@ const Add = () => {
             });
             setNewProduct(initialState);
             setTimeout(() => {
-                navigate("/customers");
+                navigate("/products-list");
             }, 1500);
         } catch (err) {
             console.error("Error adding product:", err);

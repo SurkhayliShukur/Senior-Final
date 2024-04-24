@@ -23,7 +23,7 @@ export const Card = () => {
                             (exist) => exist.id === product.id
                         )
                         return (
-                            <div className="card text-center " key={product.id} style={{ width: '20rem', height: 'auto', }}>
+                            <div className="card text-center my-2 " key={product.id} style={{ width: '20rem', height: 'auto', }}>
                                 <img src={product.image} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <span className="text-secondary fs-5">title</span>
@@ -41,7 +41,6 @@ export const Card = () => {
                                                     totalAmount: 1,
                                                     totalPrice: product.price,
                                                     totalDiscountPrice: product.discountPrice
-
                                                 })
                                             )
                                         }}>
