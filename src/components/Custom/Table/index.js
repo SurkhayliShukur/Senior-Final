@@ -3,6 +3,7 @@ import { Pagination, Columns, Filters, CustomModal } from '../../../components';
 import { ThemeContext } from '../../../Context/Theme';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
+import { MdDelete } from "react-icons/md";
 
 export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleFilters, showFilters, inputValues, setInputValues, removeProduct }) => {
 
@@ -183,9 +184,9 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
                   type === "Products" && (
                     <td>
                       <button
-                        onClick={() => removeProduct(customer)}
-                        className='btn btn-danger mx-2 '>
-                        remove
+                        onClick={() => removeProduct(customer.id)}
+                        className='btn btn-danger mx-2 text-white'>
+                        <MdDelete size={18} />
                       </button>
                     </td>
                   )

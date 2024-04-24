@@ -18,7 +18,13 @@ export const getProduct = (params) => {
 }
 export const deleteProduct = (productId) => {
     return instanceAxios({
-        method:"DELETE",
+        method: "DELETE",
+        url: ENDPOINTS.PRODUCT_ID(productId)
+    })
+}
+export const getSingleProduct = (productId) => {
+    return instanceAxios({
+        method: "DELETE",
         url: ENDPOINTS.PRODUCT_ID(productId)
     })
 }
