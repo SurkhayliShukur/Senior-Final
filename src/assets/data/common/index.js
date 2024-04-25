@@ -28,3 +28,10 @@ export const getSingleProduct = (productId) => {
         url: ENDPOINTS.PRODUCT_ID(productId)
     })
 }
+export const editProduct = (productId, updateProduct) => {
+    return instanceAxios({
+        method: "PUT",
+        url: ENDPOINTS.PRODUCT_ID(productId),
+        data: updateProduct
+    })
+}
