@@ -198,7 +198,7 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
                   type === "Products" && (
                     <td>
                       <button
-                        onClick={() => navigate("/edit")}
+                        onClick={() => navigate(`/edit/${customer.id}`)}
                         className='btn btn-warning mx-2 text-white'>
                         <MdEdit size={18} />
                       </button>

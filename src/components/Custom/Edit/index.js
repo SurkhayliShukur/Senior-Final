@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState, useRef,useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { editProduct } from "../../../assets/data"
-import { useSingleProduct } from "../../../assets/data"
 import { SketchPicker } from "react-color";
+import { getSingleProduct } from "../../../assets/data";
 import { toast } from "react-toastify"
 import moment from 'moment';
 
@@ -24,8 +24,12 @@ export const Edit = () => {
     const inputRef = useRef(null)
     const { id } = useParams()
     const [newProduct, setNewProduct] = useState(initialState)
-    const { product } = useSingleProduct(id)
     const navigate = useNavigate()
+
+    const fetchUser = async () => {
+        const response = await getSingleProduct(id)
+        setNewProduct(response)
+    }
 
     const handleEditProduct = async () => {
         try {
@@ -50,10 +54,9 @@ export const Edit = () => {
         }))
     }
     useEffect(() => {
-        if (product) {
-            setNewProduct(product)
-        }
-    }, [product])
+        fetchUser()
+    },[])
+
     return (
         <>
             <h2 className='my-3'>Edit</h2>

@@ -22,16 +22,16 @@ export const deleteProduct = (productId) => {
         url: ENDPOINTS.PRODUCT_ID(productId)
     })
 }
-export const getSingleProduct = (productId) => {
+export const getSingleProduct = (userId) => {
     return instanceAxios({
         method: "GET",
-        url: ENDPOINTS.PRODUCT_ID(productId)
+        url: ENDPOINTS.PRODUCT_ID(userId)
     })
 }
-export const editProduct = (productId, updateProduct) => {
+export const editProduct = (productId, newProduct) => {
     return instanceAxios({
         method: "PUT",
         url: ENDPOINTS.PRODUCT_ID(productId),
-        data: updateProduct
+        data: newProduct
     })
 }

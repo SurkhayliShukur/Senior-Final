@@ -66,10 +66,10 @@ export const basketSlice = createSlice({
                 }
                 exist.amount++;
                 exist.totalAmount++;
-                exist.totalPrice += exist.price;
-                exist.totalDiscountPrice += exist.discountPrice;
+                exist.totalPrice += Number(exist.price)
+                exist.totalDiscountPrice += Number(exist.discountPrice)
                 state.totalAmount++;
-                state.totalDiscountPrice += exist.discountPrice;
+                state.totalDiscountPrice += Number(exist.discountPrice)
             }
         },
         decrement: (state, action) => {

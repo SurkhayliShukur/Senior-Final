@@ -26,11 +26,11 @@ export const Basket = () => {
             </h1>
             <header className='w-100 d-flex justify-content-center align-items-center text-white bg-dark my-4'>
                 <div>
-                    <p className='fs-5'>TotalPrice:{totalPrice}</p>
-                    <p className='fs-5 my-2'>TotalDiscountPrice:{totalDiscountPrice}</p>
+                    <p className='fs-5'>TotalPrice: {totalPrice}</p>
+                    <p className='fs-5 my-2'>TotalDiscountPrice: {totalDiscountPrice}</p>
                 </div>
                 <div>
-                    <p className='fs-5 '>Sum:{totalPrice - totalDiscountPrice}</p>
+                    <p className='fs-5 '>Sum: {totalPrice + totalDiscountPrice}</p>
                     <button
                         className='btn btn-danger mb-2 ms-4'
                         onClick={() => {
