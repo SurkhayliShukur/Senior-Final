@@ -11,6 +11,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../Context/Theme'
 import { LuPlus, LuMinus } from "react-icons/lu";
+import { FaWallet } from "react-icons/fa";
 
 export const Basket = () => {
     const { color } = useContext(ThemeContext)
@@ -24,11 +25,12 @@ export const Basket = () => {
             <h1>
                 Basket
             </h1>
-            <header className='w-100 d-flex justify-content-center align-items-center text-white bg-dark my-4'>
+            <header className='w-100 d-flex justify-content-center align-items-center  text-white bg-dark my-4'>
                 <div>
                     <p className='fs-5'>TotalPrice: {totalPrice}</p>
                     <p className='fs-5 my-2'>TotalDiscountPrice: {totalDiscountPrice}</p>
                 </div>
+
                 <div>
                     <p className='fs-5 '>Sum: {totalPrice + totalDiscountPrice}</p>
                     <button
@@ -38,6 +40,10 @@ export const Basket = () => {
                         }}
                     >clear</button>
                 </div>
+                <div>
+                <FaWallet className='mx-4' size={30} />
+                </div>
+
             </header>
             <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap">
                 {
