@@ -6,7 +6,7 @@ import {
     clearBasket,
     increament,
     decrement,
-    removerFromCard
+    removeFromCard
 } from '../../features/slices/productSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../Context/Theme'
@@ -66,7 +66,13 @@ export const Basket = () => {
                                             className='btn btn-danger rounded text-white mx-3'>
                                             <LuMinus size={20} />
                                         </button>
-
+                                        <div className='d-flex mx-3'>
+                                            <button
+                                                onClick={() => dispatch(removeFromCard(product))}
+                                                className='btn btn-danger rounded text-white mx-3'>
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
 
                                 </div>

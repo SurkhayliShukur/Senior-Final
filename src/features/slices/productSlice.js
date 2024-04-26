@@ -41,7 +41,7 @@ export const basketSlice = createSlice({
                 });
             }
         },
-        removerFromCard: (state, action) => {
+        removeFromCard: (state, action) => {
             const exist = state.basket.find((product) => product.id === action.payload.id)
             if (exist) {
                 state.basket = state.basket.find((product) => product.id !== action.payload.id)
@@ -100,5 +100,5 @@ export const getTotalDiscountPrice = (state) => state.products.totalDiscountPric
 export const getTotalAmount = (state) => state.products.totalAmount
 
 
-export const { addToCard, clearBasket, removerFromCard, increament, decrement } = basketSlice.actions
+export const { addToCard, clearBasket, removeFromCard, increament, decrement } = basketSlice.actions
 export default basketSlice.reducer
