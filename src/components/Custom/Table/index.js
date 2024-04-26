@@ -3,7 +3,7 @@ import { Pagination, Columns, Filters, CustomModal } from '../../../components';
 import { ThemeContext } from '../../../Context/Theme';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
-import { MdDelete } from "react-icons/md";
+import { MdDelete, MdEdit } from "react-icons/md";
 
 export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleFilters, showFilters, inputValues, setInputValues, removeProduct }) => {
 
@@ -152,6 +152,9 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
             {
               type === "Products" && <th className='text-center text-uppercase'>delete</th>
             }
+            {
+              type === "Products" && <th className='text-center text-uppercase'>edit</th>
+            }
           </tr>
         </thead>
         <tbody>
@@ -191,6 +194,18 @@ export const Table = ({ type, data, options, setOptions, handleCheckbox, toggleF
                     </td>
                   )
                 }
+                {
+                  type === "Products" && (
+                    <td>
+                      <button
+                        onClick={() => navigate("/edit")}
+                        className='btn btn-warning mx-2 text-white'>
+                        <MdEdit size={18} />
+                      </button>
+                    </td>
+                  )
+                }
+
               </tr>
             ))
           }

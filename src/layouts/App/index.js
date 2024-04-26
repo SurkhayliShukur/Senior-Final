@@ -5,10 +5,11 @@ import { Navbar, Sidebar } from "../../components"
 import { ThemeContext } from '../../Context/Theme';
 import { ToastContainer } from "react-toastify"
 import Add from '../../components/Custom/Add';
+import { Edit } from '../../components/Custom/Edit';
 
 export const App = () => {
   const navigate = useNavigate()
- 
+
 
 
   useEffect(() => {
@@ -78,6 +79,7 @@ export const App = () => {
             ))
           }
           <Route path="/add" exact={true} element={<Add />} />
+          <Route path='/edit/:id' exact={true} element={<Edit />} />
         </Routes>
         <ToastContainer />
       </div>

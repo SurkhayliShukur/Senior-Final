@@ -4,7 +4,9 @@ import { editProduct } from "../../../assets/data"
 import { useSingleProduct } from "../../../assets/data"
 import { SketchPicker } from "react-color";
 import { toast } from "react-toastify"
+import moment from 'moment';
 
+const createDate = moment().valueOf();
 const initialState = {
     title: "",
     description: "",
@@ -67,7 +69,7 @@ export const Edit = () => {
                                 name='title'
                                 placeholder='title'
                                 onChange={handleInput}
-                                ref={ref}
+                                ref={inputRef}
                             />
                         </div>
                         <div>

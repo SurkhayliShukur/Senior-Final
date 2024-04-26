@@ -4,4 +4,4 @@ export * from './Pagination';
 export * from './Filteration';
 export * from './Modal';
 export * from './Add'
-export * from '/Edit'
+export * from './Edit'
