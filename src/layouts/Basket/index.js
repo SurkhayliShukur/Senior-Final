@@ -3,15 +3,17 @@ import {
     getBasket,
     getTotalPrice,
     getTotalDiscountPrice,
-    clearBasket,
-    increament,
-    decrement,
-    removeFromCard
 } from '../../features/slices/productSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThemeContext } from '../../Context/Theme'
 import { LuPlus, LuMinus } from "react-icons/lu";
 import { FaWallet } from "react-icons/fa";
+import {
+    clearBasket,
+    increament,
+    decrement,
+    removeFromCart
+} from "../../features/slices/productSlice"
 
 export const Basket = () => {
     const { color } = useContext(ThemeContext)
@@ -40,13 +42,16 @@ export const Basket = () => {
                         }}
                     >clear</button>
                 </div>
-                <div>
-                <FaWallet className='mx-4' size={30} />
-                </div>
+
 
             </header>
+            <div className='d-flex justify-content-center align-items-center bg-body-secondary w-100 shadow p-3'>
+                <div className='flex-end'>
+                    <FaWallet className='mx-4' size={30} />
+                </div>
+            </div>
             <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap">
-                {
+                {/* {
                     basket?.map((product) => {
                         return (
                             <div className="card text-center " key={product.id} style={{ width: '20rem', height: 'auto', }}>
@@ -74,7 +79,7 @@ export const Basket = () => {
                                         </button>
                                         <div className='d-flex mx-3'>
                                             <button
-                                                onClick={() => dispatch(removeFromCard(product))}
+                                                // onClick={() => dispatch(removeFromCart(product))}
                                                 className='btn btn-danger rounded text-white mx-3'>
                                                 Delete
                                             </button>
@@ -85,7 +90,7 @@ export const Basket = () => {
                             </div>
                         )
                     })
-                }
+                } */}
             </div>
         </>
     )

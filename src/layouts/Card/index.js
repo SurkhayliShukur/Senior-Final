@@ -17,9 +17,9 @@ export const Card = () => {
     return (
         <>
             <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap ">
-                {
+                {/* {
                     data?.map((product) => {
-                        const basketExist = basket.find(
+                        const basketExist = basket?.find(
                             (exist) => exist.id === product.id
                         )
                         return (
@@ -53,6 +53,7 @@ export const Card = () => {
                                                         <TbShoppingCartDown size={32} color={"white"} />
                                                     )
                                             }
+                                          
                                         </button>
                                     </div>
 
@@ -60,7 +61,7 @@ export const Card = () => {
                             </div>
                         )
                     })
-                }
+                } */}
             </div>
         </>
     )

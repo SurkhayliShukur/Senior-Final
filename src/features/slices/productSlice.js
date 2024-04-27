@@ -41,7 +41,7 @@ export const basketSlice = createSlice({
                 });
             }
         },
-        removeFromCard: (state, action) => {
+        removeFromCart: (state, action) => {
             const exist = state.basket.find((product) => product.id === action.payload.id)
             if (exist) {
                 state.basket = state.basket.find((product) => product.id !== action.payload.id)
@@ -79,10 +79,10 @@ export const basketSlice = createSlice({
             if (exist && exist.amount > 1) {
                 exist.amount--;
                 exist.totalAmount--;
-                exist.totalPrice -= exist.price;
-                exist.totalDiscountPrice -= exist.discountPrice;
+                exist.totalPrice -= Number(exist.price)
+                exist.totalDiscountPrice -= Number(exist.discountPrice)
                 state.totalAmount--;
-                state.totalDiscountPrice -= exist.discountPrice;
+                state.totalDiscountPrice -= Number(exist.discountPrice)
             }
         },
         clearBasket: (state) => {
@@ -100,5 +100,5 @@ export const getTotalDiscountPrice = (state) => state.products.totalDiscountPric
 export const getTotalAmount = (state) => state.products.totalAmount
 
 
-export const { addToCard, clearBasket, removeFromCard, increament, decrement } = basketSlice.actions
+export const { addToCard, clearBasket, removeFromCart, increament, decrement } = basketSlice.actions
 export default basketSlice.reducer
