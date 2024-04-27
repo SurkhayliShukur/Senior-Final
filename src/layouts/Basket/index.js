@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import {
     getBasket,
     getTotalPrice,
@@ -14,6 +14,9 @@ import {
     decrement,
     removeFromCart
 } from "../../features/slices/productSlice"
+import { getWallet } from '../../features/slices/walletSlice';
+import { increamentBalance, decrementBalance } from '../../features/slices/walletSlice';
+import { toast } from "react-toastify"
 
 export const Basket = () => {
     const { color } = useContext(ThemeContext)
@@ -21,6 +24,25 @@ export const Basket = () => {
     const basket = useSelector(getBasket)
     const totalPrice = useSelector(getTotalPrice)
     const totalDiscountPrice = useSelector(getTotalDiscountPrice)
+    const wallet = useSelector(getWallet)
+    const [amounth, setAmounth] = useState(0);
+
+    console.log("totalPrice",  totalPrice)
+    console.log("totalDiscountPrice",  totalDiscountPrice)
+
+
+
+    const handlePayment = () => {
+        if (wallet >= totalPrice) {
+            dispatch(decrementBalance(totalPrice));
+            dispatch(clearBasket())
+        } else {
+            toast.warning("Balance is not enough", {
+                autoClose: 1000
+            })
+        }
+    };
+
 
     return (
         <>
@@ -41,17 +63,37 @@ export const Basket = () => {
                             dispatch(clearBasket())
                         }}
                     >clear</button>
+                    <button
+                        className="btn  btn-warning text-white ms-2 mb-2"
+                        onClick={handlePayment}
+                    >
+                        <span>Pay </span>
+                    </button>
                 </div>
+
 
 
             </header>
-            <div className='d-flex justify-content-center align-items-center bg-body-secondary w-100 shadow p-3'>
-                <div className='flex-end'>
-                    <FaWallet className='mx-4' size={30} />
+            <div className='d-flex justify-content-between align-items-center bg-body-secondary w-100 shadow p-3'>
+                <input
+                    type="text"
+                    placeholder="Balance"
+                    value={amounth}
+                    onChange={(e) => setAmounth(e.target.value)}
+                />
+                <button
+                    className="btn btn-primary"
+                    onClick={() => dispatch(increamentBalance(Number(amounth)))}
+                >
+                    Add Amounth
+                </button>
+                <div className=''>
+                    <span>  <FaWallet className='mx-4' size={30} /></span>
+                    {wallet}
                 </div>
             </div>
             <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap">
-                {/* {
+                {
                     basket?.map((product) => {
                         return (
                             <div className="card text-center " key={product.id} style={{ width: '20rem', height: 'auto', }}>
@@ -79,7 +121,7 @@ export const Basket = () => {
                                         </button>
                                         <div className='d-flex mx-3'>
                                             <button
-                                                // onClick={() => dispatch(removeFromCart(product))}
+                                                onClick={() => dispatch(removeFromCart(product))}
                                                 className='btn btn-danger rounded text-white mx-3'>
                                                 Delete
                                             </button>
@@ -90,7 +132,7 @@ export const Basket = () => {
                             </div>
                         )
                     })
-                } */}
+                }
             </div>
         </>
     )

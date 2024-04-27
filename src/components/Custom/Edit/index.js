@@ -1,4 +1,4 @@
-import React, { useState, useRef,useEffect } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { editProduct } from "../../../assets/data"
 import { SketchPicker } from "react-color";
@@ -27,9 +27,20 @@ export const Edit = () => {
     const navigate = useNavigate()
 
     const fetchUser = async () => {
-        const response = await getSingleProduct(id)
-        setNewProduct(response)
-    }
+        try {
+            const response = await getSingleProduct(id);
+            console.log("Response from getSingleProduct:", response);
+            if (response.data) {
+                console.log("response", response.data)
+                setNewProduct(response.data);
+            } else {
+                console.error("No data returned from getSingleProduct");
+            }
+        } catch (error) {
+            console.error("Error fetching user:", error);
+        }
+    };
+
 
     const handleEditProduct = async () => {
         try {
@@ -55,7 +66,9 @@ export const Edit = () => {
     }
     useEffect(() => {
         fetchUser()
-    },[])
+    }, [])
+
+    console.log("newProduct.title", newProduct.title)
 
     return (
         <>

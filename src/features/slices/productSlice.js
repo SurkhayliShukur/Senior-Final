@@ -44,7 +44,7 @@ export const basketSlice = createSlice({
         removeFromCart: (state, action) => {
             const exist = state.basket.find((product) => product.id === action.payload.id)
             if (exist) {
-                state.basket = state.basket.find((product) => product.id !== action.payload.id)
+                state.basket = state.basket.filter((product) => product.id !== action.payload.id)
                 toast.success("Product deleted successfully!", {
                     autoClose: 1000,
                 });
@@ -82,7 +82,7 @@ export const basketSlice = createSlice({
                 exist.totalPrice -= Number(exist.price)
                 exist.totalDiscountPrice -= Number(exist.discountPrice)
                 state.totalAmount--;
-                state.totalDiscountPrice -= Number(exist.discountPrice)
+                // state.totalDiscountPrice -= Number(exist.discountPrice)
             }
         },
         clearBasket: (state) => {
