@@ -6,6 +6,8 @@ import { ThemeContext } from '../../Context/Theme';
 import { ToastContainer } from "react-toastify"
 import Add from '../../components/Custom/Add';
 import { Edit } from '../../components/Custom/Edit';
+import { Detail } from '../../layouts';
+
 
 export const App = () => {
   const navigate = useNavigate()
@@ -79,7 +81,8 @@ export const App = () => {
             ))
           }
           <Route path="/add" exact={true} element={<Add />} />
-          <Route path='/edit/:id' exact={true} element={<Edit />} />
+          <Route path='/edit/:id' element={<Edit />} />
+          <Route path="/detail/:id" element={<Detail />} />
         </Routes>
         <ToastContainer />
       </div>

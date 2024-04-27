@@ -2,10 +2,12 @@ import React, { useContext } from "react"
 import { useFetchProduct } from "../../assets/data"
 import { ThemeContext } from "../../Context/Theme"
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router-dom";
 import { getBasket } from '../../features/slices/productSlice';
 import { addToCard } from "../../features/slices/productSlice";
-import { TbShoppingCartCopy } from "react-icons/tb";
-import { TbShoppingCartDown } from "react-icons/tb";
+import { TbShoppingCartCopy, TbShoppingCartDown } from "react-icons/tb";
+import { MdRemoveRedEye } from "react-icons/md";
+
 
 
 export const Card = () => {
@@ -13,6 +15,7 @@ export const Card = () => {
     const { data } = useFetchProduct()
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
+    const navigate = useNavigate()
 
     return (
         <>
@@ -32,8 +35,8 @@ export const Card = () => {
                                     <p className="card-text">{product.category}</p>
                                     <span className="text-secondary fs-5">price</span>
                                     <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
-                                    <div className="d-flex justify-content-center align-items-center">
-                                        <button type="button" className="btn" style={{ backgroundColor: color }} onClick={() => {
+                                    <div className="d-flex justify-content-center align-items-center ">
+                                        <button type="button" className="btn mx-2" style={{ backgroundColor: color }} onClick={() => {
                                             dispatch(
                                                 addToCard({
                                                     ...product,
@@ -53,7 +56,12 @@ export const Card = () => {
                                                         <TbShoppingCartDown size={32} color={"white"} />
                                                     )
                                             }
-                                          
+
+                                        </button>
+                                        <button type="button" className="btn" style={{ backgroundColor: color }} onClick={
+                                            () => navigate(`/detail/${product.id}`)
+                                        }>
+                                            <MdRemoveRedEye size={32} style={{ color: "white" }} />
                                         </button>
                                     </div>
 
