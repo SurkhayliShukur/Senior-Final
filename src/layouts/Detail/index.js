@@ -27,12 +27,12 @@ export const Detail = () => {
     return (
         <>
             <section className="py-10">
-                <h1 className="mb-8">Detail Pages</h1>
+                <h1 className="mt-3 ">Detail Pages</h1>
                 {
                     product && (
-                        <div className="max-w-md border border-primary border-2 rounded-lg lg:max-w-3xl lg:flex font-poppins shadow-lg shadow-primary flex-row mx-auto">
+                        <div className="max-w-md border-none d-flex  border-2 rounded-lg lg:max-w-3xl lg:flex font-poppins shadow-lg shadow-primary flex-row mx-auto mt-4">
                             <img
-                                className="img-fluid w-100 lg:w-50 lg:h-555 object-cover"
+                                className="  details object-cover"
                                 src={product.image}
                                 alt={product.title}
                             />

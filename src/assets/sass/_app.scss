@@ -1,22 +1,30 @@
 .app {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    overflow: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+.details {
+ width: 47%;
 }
 
 ::-webkit-scrollbar {
-    width: 8px; 
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background-color: #f1f1f1; 
+  background-color: #f1f1f1;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #888; 
-  border-radius: 5px; 
+  background-color: #888;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
