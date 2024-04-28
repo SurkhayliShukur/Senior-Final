@@ -69,7 +69,7 @@ export const basketSlice = createSlice({
                 exist.totalPrice += Number(exist.price)
                 exist.totalDiscountPrice += Number(exist.discountPrice)
                 state.totalAmount++;
-                state.totalDiscountPrice += Number(exist.discountPrice)
+                // state.totalDiscountPrice += Number(exist.discountPrice)
             }
         },
         decrement: (state, action) => {

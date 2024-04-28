@@ -10,13 +10,13 @@ import { Detail } from '../../layouts';
 
 
 export const App = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
 
 
-  useEffect(() => {
-    navigate("/dashboard")
-  }, [])
+  // useEffect(() => {
+  //   navigate("/dashboard")
+  // }, [])
 
   const { theme, fontColor, color } = useContext(ThemeContext)
 
@@ -24,7 +24,7 @@ export const App = () => {
 
   const SIDEBAR_ROUTES = [
     {
-      path: "/dashboard",
+      path: "/",
       name: "Dashboard",
       icon: <i className="bi bi-grid" />,
       element: <Dashboard />

@@ -36,6 +36,7 @@ export const Basket = () => {
         if (wallet >= totalPrice) {
             dispatch(decrementBalance(totalPrice));
             dispatch(clearBasket())
+           
         } else {
             toast.warning("Balance is not enough", {
                 autoClose: 1000
@@ -56,7 +57,7 @@ export const Basket = () => {
                 </div>
 
                 <div>
-                    <p className='fs-5 '>Sum: {totalPrice + totalDiscountPrice}</p>
+                    <p className='fs-5 '>Sum: {totalPrice - totalDiscountPrice}</p>
                     <button
                         className='btn btn-danger mb-2 ms-4'
                         onClick={() => {
@@ -83,7 +84,10 @@ export const Basket = () => {
                 />
                 <button
                     className="btn btn-primary"
-                    onClick={() => dispatch(increamentBalance(Number(amounth)))}
+                    onClick={() => dispatch(
+                        increamentBalance(Number(amounth)),
+                        setAmounth("")
+                    )}
                 >
                     Add Amounth
                 </button>
