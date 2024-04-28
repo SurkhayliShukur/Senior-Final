@@ -19,52 +19,56 @@ export const Card = () => {
 
     return (
         <>
-          <div className="d-flex justify-content-between align-items-center my-5 flex-wrap row">
-    {
-        data?.map((product) => {
-            const basketExist = basket?.find(
-                (exist) => exist.id === product.id
-            )
-            return (
-                <div className="card text-center my-2 col-lg-3 col-md-4 col-sm-6" key={product.id}>
-                    <img src={product.image} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <span className="text-secondary fs-5">title</span>
-                        <h2 className="fs-4 text-uppercase">{product.title}</h2>
-                        <span className="text-secondary fs-5">category</span>
-                        <p className="card-text">{product.category}</p>
-                        <span className="text-secondary fs-5">price</span>
-                        <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
-                        <div className="d-flex justify-content-center align-items-center">
-                            <button type="button" className="btn mx-2" style={{ backgroundColor: color }} onClick={() => {
-                                dispatch(
-                                    addToCard({
-                                        ...product,
-                                        amount: 1,
-                                        totalAmount: 1,
-                                        totalPrice: product.price,
-                                        totalDiscountPrice: product.discountPrice
-                                    })
-                                )
-                            }}>
-                                {basketExist ? (
-                                    <TbShoppingCartCopy size={32} color={"white"} />
-                                ) : (
-                                    <TbShoppingCartDown size={32} color={"white"} />
-                                )}
-                            </button>
-                            <button type="button" className="btn" style={{ backgroundColor: color }} onClick={
-                                () => navigate(`/detail/${product.id}`)
-                            }>
-                                <MdRemoveRedEye size={32} style={{ color: "white" }} />
-                            </button>
-                        </div>
-                    </div>
+            <div className="container">
+                <div className="row">
+                    {data?.map((product) => {
+                        const basketExist = basket?.find(
+                            (exist) => exist.id === product.id
+                        )
+                        return (
+                            <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
+                                <div className="card text-center">
+                                    <img src={product.image} className="card-img-top" alt="..." />
+                                    <div className="card-body">
+                                        <h5 className="card-title text-secondary fs-5">Title</h5>
+                                        <h2 className="card-title fs-4 text-uppercase">{product.title}</h2>
+                                        <h5 className="card-title text-secondary fs-5">Category</h5>
+                                        <p className="card-text">{product.category}</p>
+                                        <h5 className="card-title text-secondary fs-5">Price</h5>
+                                        <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
+                                        <div className="d-flex justify-content-center align-items-center">
+                                            <button type="button" className="btn mx-2" style={{ backgroundColor: color }} onClick={() => {
+                                                dispatch(
+                                                    addToCard({
+                                                        ...product,
+                                                        amount: 1,
+                                                        totalAmount: 1,
+                                                        totalPrice: product.price,
+                                                        totalDiscountPrice: product.discountPrice
+                                                    })
+                                                )
+                                            }}>
+                                                {basketExist ? (
+                                                    <TbShoppingCartCopy size={32} color={"white"} />
+                                                ) : (
+                                                    <TbShoppingCartDown size={32} color={"white"} />
+                                                )}
+                                            </button>
+                                            <button type="button" className="btn" style={{ backgroundColor: color }} onClick={
+                                                () => navigate(`/detail/${product.id}`)
+                                            }>
+                                                <MdRemoveRedEye size={32} style={{ color: "white" }} />
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
-            )
-        })
-    }
-</div>
+            </div>
+
+
 
         </>
     )
