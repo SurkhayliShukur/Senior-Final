@@ -100,7 +100,7 @@ export const Basket = () => {
                 <div className="row">
                     {basket?.map((product) => (
                         <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4" key={product.id} >
-                            <div className={`card text-center shadow ${theme === "#FFFFFF" ? "#FFFFFF" : "#000000"}`}>
+                            <div className={`card text-center shadow `} style={{ backgroundColor: theme }}>
                                 <img src={product.image} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title text-secondary fs-5">Title</h5>

@@ -27,7 +27,7 @@ export const Card = () => {
                         )
                         return (
                             <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mt-4" key={product.id}>
-                                <div className="card text-center">
+                                <div className={`card text-center shadow`} style={{backgroundColor:theme}}>
                                     <img src={product.image} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title text-secondary fs-5">Title</h5>
