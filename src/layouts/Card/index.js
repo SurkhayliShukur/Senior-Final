@@ -26,7 +26,7 @@ export const Card = () => {
                             (exist) => exist.id === product.id
                         )
                         return (
-                            <div className="col-lg-3 col-md-4 col-sm-6 mb-4" key={product.id}>
+                            <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mt-4" key={product.id}>
                                 <div className="card text-center">
                                     <img src={product.image} className="card-img-top" alt="..." />
                                     <div className="card-body">

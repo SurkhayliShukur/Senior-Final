@@ -19,7 +19,7 @@ import { increamentBalance, decrementBalance } from '../../features/slices/walle
 import { toast } from "react-toastify"
 
 export const Basket = () => {
-    const { color } = useContext(ThemeContext)
+    const { color, theme, fontColor } = useContext(ThemeContext)
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
     const totalPrice = useSelector(getTotalPrice)
@@ -27,8 +27,8 @@ export const Basket = () => {
     const wallet = useSelector(getWallet)
     const [amounth, setAmounth] = useState(0);
 
-    console.log("totalPrice",  totalPrice)
-    console.log("totalDiscountPrice",  totalDiscountPrice)
+    console.log("totalPrice", totalPrice)
+    console.log("totalDiscountPrice", totalDiscountPrice)
 
 
 
@@ -36,7 +36,7 @@ export const Basket = () => {
         if (wallet >= totalPrice) {
             dispatch(decrementBalance(totalPrice));
             dispatch(clearBasket())
-           
+
         } else {
             toast.warning("Balance is not enough", {
                 autoClose: 1000
@@ -96,48 +96,38 @@ export const Basket = () => {
                     {wallet}
                 </div>
             </div>
-            <div className="d-flex justify-content-between aligin-items-center my-5 flex-wrap">
-                {
-                    basket?.map((product) => {
-                        return (
-                            <div className="card text-center " key={product.id} style={{ width: '20rem', height: 'auto', }}>
+            <div className="container">
+                <div className="row">
+                    {basket?.map((product) => (
+                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4" key={product.id} >
+                            <div className={`card text-center shadow ${theme === "#FFFFFF" ? "#FFFFFF" : "#000000"}`}>
                                 <img src={product.image} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <span className="text-secondary fs-5">title</span>
-                                    <h2 className="fs-4 text-uppercase">{product.title}</h2>
-                                    <span className="text-secondary fs-5">category</span>
+                                    <h5 className="card-title text-secondary fs-5">Title</h5>
+                                    <h2 className={`card-title fs-4 text-uppercase`} >{product.title}</h2>
+                                    <h5 className="card-title text-secondary fs-5">Category</h5>
                                     <p className="card-text">{product.category}</p>
-                                    <span className="text-secondary fs-5">price</span>
+                                    <h5 className="card-title text-secondary fs-5">Price</h5>
                                     <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
                                     <div className="d-flex justify-content-center align-items-center">
-                                        <button
-                                            onClick={() => dispatch(increament(product))}
-                                            className='btn btn-success rounded text-white mx-3 '>
+                                        <button onClick={() => dispatch(increament(product))} className="btn btn-success rounded text-white mx-3">
                                             <LuPlus size={20} />
                                         </button>
-                                        <p className='mb-2'>
-                                            {product.amount}
-                                        </p>
-                                        <button
-                                            onClick={() => dispatch(decrement(product))}
-                                            className='btn btn-danger rounded text-white mx-3'>
+                                        <p className="mb-2">{product.amount}</p>
+                                        <button onClick={() => dispatch(decrement(product))} className="btn btn-danger rounded text-white mx-3">
                                             <LuMinus size={20} />
                                         </button>
-                                        <div className='d-flex mx-3'>
-                                            <button
-                                                onClick={() => dispatch(removeFromCart(product))}
-                                                className='btn btn-danger rounded text-white mx-3'>
-                                                Delete
-                                            </button>
-                                        </div>
+                                        <button onClick={() => dispatch(removeFromCart(product))} className="btn btn-danger rounded text-white mx-3">
+                                            Delete
+                                        </button>
                                     </div>
-
                                 </div>
                             </div>
-                        )
-                    })
-                }
+                        </div>
+                    ))}
+                </div>
             </div>
+
         </>
     )
 }
