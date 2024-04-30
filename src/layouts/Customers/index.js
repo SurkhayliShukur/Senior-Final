@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Customers as data } from '../../assets/data';
+// import { Customers as data } from '../../assets/data';
 import { Table } from '../../components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,8 +9,31 @@ export const Customers = () => {
 
   const [options, setOptions] = useState([]);
   const tableHeads = options.filter(option => option.value).map(option => option.name);
+  const [data, setData] = useState([])
   const [filteredData, setFilteredData] = useState([...data])
   // const [filteredData, setFilteredData] = useState([])
+
+  const fetcUsers = async () => {
+    try {
+      const url = "https://jsonplaceholder.typicode.com/posts";
+      const response = await fetch(url);
+      const dataJson = response.json();
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      } else {
+        setData(dataJson);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetcUsers()
+  },[])
+  console.log("data",data)
+
+
+
 
 
   useEffect(() => {
@@ -92,7 +115,7 @@ export const Customers = () => {
       <div className='float-start my-3 h2'>
         <span>Customers</span>
       </div>
-     
+
       <Table
         data={filteredData}
         options={options}

@@ -19,7 +19,12 @@ export const AddAmount = ({ modalShow, onHide }) => {
 
     return (
         <>
-            <Modal show={modalShow} onHide={onHide}>
+            <Modal
+                show={modalShow}
+                onHide={onHide}
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+            >
                 <Modal.Header closeButton>
                     <Modal.Title>
                         Add Amounth
