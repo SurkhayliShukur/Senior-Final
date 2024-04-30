@@ -15,8 +15,9 @@ import {
     removeFromCart
 } from "../../features/slices/productSlice"
 import { getWallet } from '../../features/slices/walletSlice';
-import { increamentBalance, decrementBalance } from '../../features/slices/walletSlice';
+import { decrementBalance } from '../../features/slices/walletSlice';
 import { toast } from "react-toastify"
+import { addAmount } from '../../components';
 
 export const Basket = () => {
     const { color, theme, fontColor } = useContext(ThemeContext)
@@ -25,11 +26,7 @@ export const Basket = () => {
     const totalPrice = useSelector(getTotalPrice)
     const totalDiscountPrice = useSelector(getTotalDiscountPrice)
     const wallet = useSelector(getWallet)
-    const [amounth, setAmounth] = useState(0);
-
-    console.log("totalPrice", totalPrice)
-    console.log("totalDiscountPrice", totalDiscountPrice)
-
+    const [modalShow, setModalShow] = useState(false)
 
 
     const handlePayment = () => {
@@ -50,6 +47,10 @@ export const Basket = () => {
             <h1>
                 Basket
             </h1>
+            <addAmount
+                modalShow={modalShow}
+                onHide={() => setModalShow(false)}
+            />
             <header className='w-100 d-flex justify-content-center align-items-center  text-white bg-dark my-4'>
                 <div>
                     <p className='fs-5'>TotalPrice: {totalPrice}</p>
@@ -71,26 +72,16 @@ export const Basket = () => {
                         <span>Pay </span>
                     </button>
                 </div>
-
-
-
             </header>
             <div className='d-flex justify-content-between align-items-center bg-body-secondary w-100 shadow p-3'>
-                <input
-                    type="text"
-                    placeholder="Balance"
-                    value={amounth}
-                    onChange={(e) => setAmounth(e.target.value)}
-                />
-                <button
-                    className="btn btn-primary"
-                    onClick={() => dispatch(
-                        increamentBalance(Number(amounth)),
-                        setAmounth("")
-                    )}
-                >
-                    Add Amounth
-                </button>
+                <div>
+                    <button
+                        className='btn btn-success'
+                        onClick={() => setModalShow(true)}
+                    >
+
+                    </button>
+                </div>
                 <div className=''>
                     <span>  <FaWallet className='mx-4' size={30} /></span>
                     {wallet}
@@ -127,6 +118,7 @@ export const Basket = () => {
                     ))}
                 </div>
             </div>
+
 
         </>
     )

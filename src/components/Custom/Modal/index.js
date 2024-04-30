@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { ThemeContext } from '../../../Context/Theme';
 
-export const CustomModal = ({ modalShow, onHide, details}) => {
+export const CustomModal = ({ modalShow, onHide, details,}) => {
 
     const { color, theme, fontColor } = useContext(ThemeContext)
    
@@ -52,5 +52,6 @@ export const CustomModal = ({ modalShow, onHide, details}) => {
                 <Button onClick={onHide}>Close</Button>
             </Modal.Footer>
         </Modal>
+      
     )
 }
