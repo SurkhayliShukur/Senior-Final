@@ -76,10 +76,15 @@ export const Basket = () => {
             <div className='d-flex justify-content-between align-items-center bg-body-secondary w-100 shadow p-3'>
                 <div>
                     <button
-                        className='btn btn-success'
+                        className='btn'
                         onClick={() => setModalShow(true)}
+                        style={{
+                            backgroundColor: color,
+                            color: "white"
+                        }}
+
                     >
-                    Add
+                        <i class="bi bi-plus-lg"></i>
                     </button>
                 </div>
                 <div className=''>

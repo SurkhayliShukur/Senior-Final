@@ -19,7 +19,7 @@ export const AddAmount = ({ modalShow, onHide }) => {
 
     return (
         <>
-            <Modal show={modalShow}>
+            <Modal show={modalShow} onHide={onHide}>
                 <Modal.Header closeButton>
                     <Modal.Title>
                         Add Amounth
