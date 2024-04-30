@@ -69,6 +69,7 @@ export const basketSlice = createSlice({
                 exist.totalPrice += Number(exist.price)
                 exist.totalDiscountPrice += Number(exist.discountPrice)
                 state.totalAmount++;
+                state.totalPrice += Number(exist.price)
                 // state.totalDiscountPrice += Number(exist.discountPrice)
             }
         },
@@ -80,6 +81,7 @@ export const basketSlice = createSlice({
                 exist.amount--;
                 exist.totalAmount--;
                 exist.totalPrice -= Number(exist.price)
+                state.totalPrice -= Number(exist.price)
                 exist.totalDiscountPrice -= Number(exist.discountPrice)
                 state.totalAmount--;
                 // state.totalDiscountPrice -= Number(exist.discountPrice)
