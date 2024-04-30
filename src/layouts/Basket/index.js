@@ -17,7 +17,7 @@ import {
 import { getWallet } from '../../features/slices/walletSlice';
 import { decrementBalance } from '../../features/slices/walletSlice';
 import { toast } from "react-toastify"
-import { addAmount } from '../../components';
+import { AddAmount } from '../../components';
 
 export const Basket = () => {
     const { color, theme, fontColor } = useContext(ThemeContext)
@@ -47,7 +47,7 @@ export const Basket = () => {
             <h1>
                 Basket
             </h1>
-            <addAmount
+            <AddAmount
                 modalShow={modalShow}
                 onHide={() => setModalShow(false)}
             />
@@ -79,7 +79,7 @@ export const Basket = () => {
                         className='btn btn-success'
                         onClick={() => setModalShow(true)}
                     >
-
+                    Add
                     </button>
                 </div>
                 <div className=''>

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { increamentBalance } from "../../../features/slices/walletSlice";
 import { Modal, Button } from "react-bootstrap";
 
-export const addAmount = ({ modalShow, onHide }) => {
+export const AddAmount = ({ modalShow, onHide }) => {
 
     const [amounth, setAmounth] = useState(0);
     const dispatch = useDispatch()
