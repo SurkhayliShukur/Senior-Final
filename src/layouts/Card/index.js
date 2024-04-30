@@ -18,7 +18,10 @@ export const Card = () => {
     const navigate = useNavigate()
 
     return (
-        <>
+        <div>
+            <div className='my-3 mx-3 h2'>
+                <span style={{ color: fontColor }}>Products</span>
+            </div>
             <div className="container">
                 <div className="row">
                     {data?.map((product) => {
@@ -70,7 +73,7 @@ export const Card = () => {
 
 
 
-        </>
+        </div>
     )
 
 }

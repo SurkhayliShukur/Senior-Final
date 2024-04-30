@@ -73,7 +73,7 @@ export const Basket = () => {
                     </button>
                 </div>
             </header>
-            <div className='d-flex justify-content-between align-items-center bg-body-secondary w-100 shadow p-3'>
+            <div className='d-flex justify-content-between align-items-center bg-dark w-100 shadow p-3'>
                 <div>
                     <button
                         className='btn'

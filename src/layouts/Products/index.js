@@ -111,7 +111,7 @@ export const Products = () => {
   return (
     <div>
       <div className='float-start my-3 h2'>
-        <span style={{ color: fontColor }}>Products</span>
+        <span style={{ color: fontColor }}>Products-List</span>
       </div>
       {filteredData.length > 0 && (
         <Table
