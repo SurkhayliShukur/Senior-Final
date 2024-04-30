@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Statistics as data } from '../../assets/data';
 import moment from 'moment'
+import { ThemeContext } from '../../Context/Theme';
 
 export const Statistics = () => {
+  const { fontColor } = useContext(ThemeContext)
 
   const createdData = data.data.created.data;
   const completedData = data.data.completed.data;
@@ -20,7 +22,7 @@ export const Statistics = () => {
     const barHeight = (count / maxCount) * 100;
 
     return (
-      <div className={`bar ${color}`} style={{ height: `${barHeight}%`}} title={`${count} ${name}`}></div>
+      <div className={`bar ${color}`} style={{ height: `${barHeight}%` }} title={`${count} ${name}`}></div>
     );
   };
 
@@ -50,20 +52,20 @@ export const Statistics = () => {
   return (
     <div>
       <div className="my-3 h2">
-        <span>Statistics</span>
+        <span style={{ color: fontColor }}>Statistics</span>
       </div>
-      <div className='d-flex mx-1'>
-          {
-            Object.keys(inputValues).map((name) => (
-              <div className='checkbox me-2' key={name}>
-                <input className='form-check-input' id={name} type='checkbox' checked={inputValues[name]} onChange={() => handleCheckbox(name)} />
-                <div className={`span ${name.toLowerCase()}`}> </div>
-                <label className='ms-1' htmlFor={name}>{name}</label>
-              </div>
-            ))
-          }
-        </div>
-      <div className="row p-3 rounded position-relative">
+      <div className='d-flex mx-1' style={{ color: fontColor }} >
+        {
+          Object.keys(inputValues).map((name) => (
+            <div className='checkbox me-2' key={name}>
+              <input className='form-check-input' id={name} type='checkbox' checked={inputValues[name]} onChange={() => handleCheckbox(name)} />
+              <div className={`span ${name.toLowerCase()}`}> </div>
+              <label className='ms-1' htmlFor={name}>{name}</label>
+            </div>
+          ))
+        }
+      </div>
+      <div className="row p-3 rounded position-relative" style={{ color: fontColor }}>
         {Object.keys(createdData).map((day, index) => {
           const createdCount = createdData[day].count;
           const completedCount = completedData[day].count;
@@ -73,7 +75,7 @@ export const Statistics = () => {
           const maxCount = getMaxCount();
 
           return (
-            <div key={day} className="col m-0 p-0" style={{position: "relative"}}>
+            <div key={day} className="col m-0 p-0" style={{ position: "relative", color: fontColor }}>
               <div className="chart-container">
                 <div className='background'>
                   <div className="line"></div>
@@ -91,13 +93,13 @@ export const Statistics = () => {
             </div>
           )
         })}
-        <div className="chart-scale" style={{position:"absolute", right: "-20px", top: "0px"}}>
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div className="scale-mark" key={i} style={{position: "absolute", top: `${i * 25}%`}}>
-                {Math.ceil(maxCount * (1 - ((i) / 4)))}
-              </div>
-            ))}
-          </div>
+        <div className="chart-scale" style={{ position: "absolute", right: "-20px", top: "0px" }}>
+          {Array.from({ length: 5 }).map((_, i) => (
+            <div className="scale-mark" key={i} style={{ position: "absolute", top: `${i * 25}%` }}>
+              {Math.ceil(maxCount * (1 - ((i) / 4)))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

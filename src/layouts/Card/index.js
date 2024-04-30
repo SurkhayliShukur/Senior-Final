@@ -11,7 +11,7 @@ import { MdRemoveRedEye } from "react-icons/md";
 
 
 export const Card = () => {
-    const { color, theme } = useContext(ThemeContext)
+    const { color, theme, fontColor } = useContext(ThemeContext)
     const { data } = useFetchProduct()
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
@@ -27,13 +27,13 @@ export const Card = () => {
                         )
                         return (
                             <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mt-4" key={product.id}>
-                                <div className={`card text-center shadow`} style={{backgroundColor:theme}}>
+                                <div className={`card text-center shadow`} style={{ backgroundColor: theme }}>
                                     <img src={product.image} className="card-img-top" alt="..." />
                                     <div className="card-body">
                                         <h5 className="card-title text-secondary fs-5">Title</h5>
-                                        <h2 className="card-title fs-4 text-uppercase">{product.title}</h2>
+                                        <h2 className="card-title fs-4 text-uppercase" style={{ color: fontColor }}>{product.title}</h2>
                                         <h5 className="card-title text-secondary fs-5">Category</h5>
-                                        <p className="card-text">{product.category}</p>
+                                        <p className="card-text" style={{ color: fontColor }}>{product.category}</p>
                                         <h5 className="card-title text-secondary fs-5">Price</h5>
                                         <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
                                         <div className="d-flex justify-content-center align-items-center">

@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Table } from '../../components';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { getProduct, deleteProduct } from '../../assets/data/common';
+import { ThemeContext } from '../../Context/Theme';
 
 
 export const Products = () => {
+  const { fontColor } = useContext(ThemeContext)
 
   const [newData, setNewData] = useState([]);
   const [data, setData] = useState([]);
-
   const [options, setOptions] = useState([]);
   const tableHeads = options.filter(option => option.value).map(option => option.name);
   const [filteredData, setFilteredData] = useState([...newData])
@@ -110,7 +111,7 @@ export const Products = () => {
   return (
     <div>
       <div className='float-start my-3 h2'>
-        <span>Products</span>
+        <span style={{ color: fontColor }}>Products</span>
       </div>
       {filteredData.length > 0 && (
         <Table

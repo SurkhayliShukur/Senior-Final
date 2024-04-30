@@ -44,7 +44,7 @@ export const Basket = () => {
 
     return (
         <>
-            <h1>
+            <h1 className='mt-2' style={{ color: fontColor }}>
                 Basket
             </h1>
             <AddAmount
@@ -87,7 +87,7 @@ export const Basket = () => {
                         <i class="bi bi-plus-lg"></i>
                     </button>
                 </div>
-                <div className=''>
+                <div style={{color: fontColor}}>
                     <span>  <FaWallet className='mx-4' size={30} /></span>
                     {wallet}
                 </div>
@@ -100,9 +100,9 @@ export const Basket = () => {
                                 <img src={product.image} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title text-secondary fs-5">Title</h5>
-                                    <h2 className={`card-title fs-4 text-uppercase`} >{product.title}</h2>
+                                    <h2 className={`card-title fs-4 text-uppercase`} style={{ color: fontColor }}>{product.title}</h2>
                                     <h5 className="card-title text-secondary fs-5">Category</h5>
-                                    <p className="card-text">{product.category}</p>
+                                    <p className="card-text" style={{ color: fontColor }}>{product.category}</p>
                                     <h5 className="card-title text-secondary fs-5">Price</h5>
                                     <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
                                     <div className="d-flex justify-content-center align-items-center">
