@@ -38,7 +38,7 @@ export const Card = () => {
                     placeholder="Filter Products"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="form-control rounded-pill border-secondary"
+                    className="form-control border-secondary"
                     style={{ maxWidth: "300px", color:fontColor,backgroundColor:theme }} // Adjust width if needed
                 />
             </div>
