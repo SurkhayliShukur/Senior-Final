@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import ProfileImg from '../../../assets/images/profile.jpg'
+import ProfileImg from '../../../assets/images/logo_img.jpeg'
 import { Dropdown } from '../../../components'
 import { profileOptions } from '../../../assets/data'
 import { ThemeContext } from '../../../Context/Theme'
@@ -31,8 +31,9 @@ export const Profile = () => {
             style={ IMAGE_STYLE }
             src={ProfileImg}
             alt='profile-image'
+            
         />
-        <h4>İlkin Qafarov</h4>
+        <h4>Surkhayli Shukur</h4>
     </div>
 
     
