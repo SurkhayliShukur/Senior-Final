@@ -16,16 +16,35 @@ export const Card = () => {
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
     const navigate = useNavigate()
-    const [search,setSearch] = useState("")
+    const [search, setSearch] = useState("")
+
+
+    const filterData = data.filter((product) => {
+        const filterValue = search.toLowerCase()
+        return (
+            product.title.toLowerCase().includes(filterValue) ||
+            product.category.toLowerCase().includes(filterValue)
+        )
+    })
 
     return (
         <div>
             <div className='my-3 mx-3 h2'>
                 <span style={{ color: fontColor }}>Products</span>
             </div>
+            <div className="d-flex justify-content-center mt-4 mb-4">
+                <input
+                    type="text"
+                    placeholder="Filter Products"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="form-control rounded-pill border-secondary"
+                    style={{ maxWidth: "300px", color:fontColor,backgroundColor:theme }} // Adjust width if needed
+                />
+            </div>
             <div className="container">
                 <div className="row">
-                    {data?.map((product) => {
+                    {filterData?.map((product) => {
                         const basketExist = basket?.find(
                             (exist) => exist.id === product.id
                         )
