@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useFetchProduct } from "../../assets/data"
 import { ThemeContext } from "../../Context/Theme"
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +16,7 @@ export const Card = () => {
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
     const navigate = useNavigate()
+    const [search,setSearch] = useState("")
 
     return (
         <div>
