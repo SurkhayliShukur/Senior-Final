@@ -6,3 +6,4 @@ export * from './Statistics';
 export * from './Basket'
 export * from './Card'
 export * from './Detail'
+export * from './Wishlist'
