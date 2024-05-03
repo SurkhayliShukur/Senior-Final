@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react'
-import { Routes, Route, useNavigate,Navigate } from 'react-router-dom';
-import { Dashboard, Customers, Products, Statistics, Basket, Card } from '../../layouts';
+import { Routes, Route, } from 'react-router-dom';
+import { Dashboard, Customers, Products, Statistics, Basket, Card, Wishlist } from '../../layouts';
 import { Navbar, Sidebar } from "../../components"
 import { ThemeContext } from '../../Context/Theme';
 import { ToastContainer } from "react-toastify"
@@ -58,6 +58,12 @@ export const App = () => {
       name: "Basket",
       icon: <i className="bi bi-basket3"></i>,
       element: <Basket />
+    },
+    {
+      path: "/wishlist",
+      name: "Wishlist",
+      icon: <i className="bi bi-box2-heart"></i>,
+      element: <Wishlist />
     },
   ]
 

@@ -7,6 +7,8 @@ import { getBasket } from '../../features/slices/productSlice';
 import { addToCard } from "../../features/slices/productSlice";
 import { TbShoppingCartCopy, TbShoppingCartDown } from "react-icons/tb";
 import { MdRemoveRedEye } from "react-icons/md";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { getWishList, addToWislist } from "../../features/slices/wishSlice";
 
 
 
@@ -15,6 +17,7 @@ export const Card = () => {
     const { data } = useFetchProduct()
     const dispatch = useDispatch()
     const basket = useSelector(getBasket)
+    const wishlist = useSelector(getWishList)
     const navigate = useNavigate()
     const [search, setSearch] = useState("")
 
@@ -39,7 +42,7 @@ export const Card = () => {
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     className="form-control border-secondary"
-                    style={{ maxWidth: "300px", color:fontColor,backgroundColor:theme }} // Adjust width if needed
+                    style={{ maxWidth: "300px", color: fontColor, backgroundColor: theme }} // Adjust width if needed
                 />
             </div>
             <div className="container">
@@ -48,6 +51,7 @@ export const Card = () => {
                         const basketExist = basket?.find(
                             (exist) => exist.id === product.id
                         )
+                        const wishExist = wishlist?.find((exist) => exist.id === product.id)
                         return (
                             <div className="col-lg-3 col-md-4 col-sm-6 mb-4 mt-4" key={product.id}>
                                 <div className={`card text-center shadow`} style={{ backgroundColor: theme }}>
@@ -81,6 +85,19 @@ export const Card = () => {
                                                 () => navigate(`/detail/${product.id}`)
                                             }>
                                                 <MdRemoveRedEye size={32} style={{ color: "white" }} />
+                                            </button>
+                                            <button type="button" className="btn mx-2" style={{ backgroundColor: color }} onClick={() => {
+                                                dispatch(
+                                                    addToWislist({
+                                                        ...product,
+                                                    })
+                                                )
+                                            }}>
+                                                {wishExist ? (
+                                                    <FaHeart size={32} color={"white"} />
+                                                ) : (
+                                                    <FaRegHeart size={32} color={"white"} />
+                                                )}
                                             </button>
                                         </div>
                                     </div>
