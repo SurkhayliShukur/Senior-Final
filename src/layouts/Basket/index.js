@@ -87,40 +87,50 @@ export const Basket = () => {
                         <i class="bi bi-plus-lg"></i>
                     </button>
                 </div>
-                <div style={{color: fontColor}}>
+                <div style={{ color: fontColor }}>
                     <span>  <FaWallet className='mx-4' size={30} /></span>
                     {wallet}
                 </div>
             </div>
             <div className="container">
                 <div className="row">
-                    {basket?.map((product) => (
-                        <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4" key={product.id} >
-                            <div className={`card text-center shadow `} style={{ backgroundColor: theme }}>
-                                <img src={product.image} className="card-img-top" alt="..." />
-                                <div className="card-body">
-                                    <h5 className="card-title text-secondary fs-5">Title</h5>
-                                    <h2 className={`card-title fs-4 text-uppercase`} style={{ color: fontColor }}>{product.title}</h2>
-                                    <h5 className="card-title text-secondary fs-5">Category</h5>
-                                    <p className="card-text" style={{ color: fontColor }}>{product.category}</p>
-                                    <h5 className="card-title text-secondary fs-5">Price</h5>
-                                    <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
-                                    <div className="d-flex justify-content-center align-items-center">
-                                        <button onClick={() => dispatch(increament(product))} className="btn btn-success rounded text-white mx-3">
-                                            <LuPlus size={20} />
-                                        </button>
-                                        <p className="mb-2" style={{ color: fontColor }}>{product.amount}</p>
-                                        <button onClick={() => dispatch(decrement(product))} className="btn btn-danger rounded text-white mx-3">
-                                            <LuMinus size={20} />
-                                        </button>
-                                        <button onClick={() => dispatch(removeFromCart(product))} className="btn btn-danger rounded text-white mx-3">
-                                            Delete
-                                        </button>
+                    {
+                        basket.length > 0 ? (
+                            basket?.map((product) => (
+                                <div className="col-lg-4 col-md-6 col-sm-12 mb-4 mt-4" key={product.id} >
+                                    <div className={`card text-center shadow `} style={{ backgroundColor: theme }}>
+                                        <img src={product.image} className="card-img-top" alt="..." />
+                                        <div className="card-body">
+                                            <h5 className="card-title text-secondary fs-5">Title</h5>
+                                            <h2 className={`card-title fs-4 text-uppercase`} style={{ color: fontColor }}>{product.title}</h2>
+                                            <h5 className="card-title text-secondary fs-5">Category</h5>
+                                            <p className="card-text" style={{ color: fontColor }}>{product.category}</p>
+                                            <h5 className="card-title text-secondary fs-5">Price</h5>
+                                            <p className="card-text fw-bold fs-3" style={{ color: color }}>{product.price}</p>
+                                            <div className="d-flex justify-content-center align-items-center">
+                                                <button onClick={() => dispatch(increament(product))} className="btn btn-success rounded text-white mx-3">
+                                                    <LuPlus size={20} />
+                                                </button>
+                                                <p className="mb-2" style={{ color: fontColor }}>{product.amount}</p>
+                                                <button onClick={() => dispatch(decrement(product))} className="btn btn-danger rounded text-white mx-3">
+                                                    <LuMinus size={20} />
+                                                </button>
+                                                <button onClick={() => dispatch(removeFromCart(product))} className="btn btn-danger rounded text-white mx-3">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            ))
+                        ) : (
+                            <div className='d-flex justify-content-center align-items-center my-4'>
+                                <h2 className=' text-danger fs-3'>Basket is Empty </h2>
                             </div>
-                        </div>
-                    ))}
+
+
+                        )
+                    }
                 </div>
             </div>
 

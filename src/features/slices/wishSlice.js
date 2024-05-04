@@ -19,9 +19,19 @@ export const wishlistSlice = createSlice({
             else {
                 state.wishlist.push(action.payload)
             }
+        },
+        removeFromWish: (state, action) => {
+            const exist = state.wishlist.find((product) => product.id === action.payload.id)
+            if (exist) {
+                state.wishlist = state.wishlist.filter((product) => product.id !== action.payload.id)
+                toast.success("Product is deleted successfully", {
+                    autoClose: 1000,
+                })
+            }
         }
     }
+
 })
 export const getWishList = (state) => state.wish.wishlist
-export const { addToWislist } = wishlistSlice.actions
+export const { addToWislist,removeFromWish } = wishlistSlice.actions
 export default wishlistSlice.reducer
