@@ -109,7 +109,7 @@ export const Basket = () => {
                                         <button onClick={() => dispatch(increament(product))} className="btn btn-success rounded text-white mx-3">
                                             <LuPlus size={20} />
                                         </button>
-                                        <p className="mb-2">{product.amount}</p>
+                                        <p className="mb-2" style={{ color: fontColor }}>{product.amount}</p>
                                         <button onClick={() => dispatch(decrement(product))} className="btn btn-danger rounded text-white mx-3">
                                             <LuMinus size={20} />
                                         </button>
