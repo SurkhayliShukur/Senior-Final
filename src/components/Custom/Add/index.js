@@ -1,9 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect, useContext } from 'react'
 import { toast } from "react-toastify"
 import { addProduct } from '../../../assets/data/common';
 import { useNavigate } from 'react-router-dom';
 import moment from 'moment';
 import { SketchPicker } from "react-color";
+import { ThemeContext } from '../../../Context/Theme';
 
 const createDate = moment().valueOf();
 
@@ -20,6 +21,7 @@ const initialState = {
     color: "#000",
 }
 const Add = () => {
+    const { fontColor } = useContext(ThemeContext)
     const ref = useRef(null)
     const navigate = useNavigate()
     const [newProduct, setNewProduct] = useState(initialState)
@@ -71,7 +73,9 @@ const Add = () => {
             <form>
                 <div className='d-flex justify-content-center align-items-center p-5 '>
                     <div>
+
                         <div className='my-3'>
+                            <label className='my-2' style={{ color: fontColor }}>title</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -84,6 +88,7 @@ const Add = () => {
                             />
                         </div>
                         <div>
+                            <label className='my-2' style={{ color: fontColor }}>description</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -95,6 +100,7 @@ const Add = () => {
                             />
                         </div>
                         <div className='my-3'>
+                            <label className='my-2' style={{ color: fontColor }}>price</label>
                             <input
                                 type="number"
                                 className="form-control"
@@ -106,6 +112,7 @@ const Add = () => {
                             />
                         </div>
                         <div>
+                            <label className='my-2' style={{ color: fontColor }}>discountPrice</label>
                             <input
                                 type="number"
                                 className="form-control"
@@ -116,6 +123,7 @@ const Add = () => {
                             />
                         </div>
                         <div className='my-3'>
+                            <label className='my-2' style={{ color: fontColor }}>rating</label>
                             <input
                                 type="number"
                                 className="form-control"
@@ -126,6 +134,7 @@ const Add = () => {
                             />
                         </div>
                         <div>
+                            <label className='my-2' style={{ color: fontColor }}>stock</label>
                             <input
                                 type="number"
                                 className="form-control"
@@ -136,6 +145,7 @@ const Add = () => {
                             />
                         </div>
                         <div className='my-3'>
+                            <label className='my-2' style={{ color: fontColor }}>category</label>
                             <input
                                 type="text"
                                 className="form-control"
@@ -147,6 +157,7 @@ const Add = () => {
                             />
                         </div>
                         <div>
+                            <label className='my-2' style={{ color: fontColor }}>image</label>
                             <input
                                 type="text"
                                 className="form-control"

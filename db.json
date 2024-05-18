@@ -4,7 +4,7 @@
       "id": "1b5a",
       "title": "neww",
       "description": "ssasadad",
-      "price": "10",
+      "price": "100",
       "discountPrice": "20",
       "rating": "20",
       "stock": "10",
@@ -25,6 +25,19 @@
       "image": "https://images.unsplash.com/photo-1682685796965-9814afcbff55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "create_at": 1714382758344,
       "color": "#000"
+    },
+    {
+      "id": "a2f4",
+      "title": "new",
+      "description": "neww",
+      "price": "10",
+      "discountPrice": "5",
+      "rating": "6",
+      "stock": "9",
+      "category": "Phone",
+      "image": "https://images.unsplash.com/photo-1682685796965-9814afcbff55?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "create_at": 1716025970977,
+      "color": "#ef1616"
     }
   ]
 }
